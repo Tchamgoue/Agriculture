@@ -1,0 +1,98 @@
+.my_first_css{
+    color: red !important;
+    text-align: center;
+}
+/*
+.card-mifos{
+min-width: 0;
+word-wrap: break-word;
+background-color: #FFFFFF;
+background-clip: border-box;
+border: 1px solid rgba(0, 0, 0, 0.125);
+border-radius: 0.25rem;
+}
+.card-header-mifos{
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}*/
+.btn-create,.btn-view{
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 600;
+            border: 2px solid #ffffff;
+            z-index: 1;
+            background-color: #13b2d9;
+            border-color: #13b2d9;
+            transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+}
+.btn-create:hover,.btn-view:hover{
+                background-color: transparent;
+                color: #13b2d9;
+}
+.account_creation_information{
+                    margin-top:20px;
+                    font-size: 1.75rem;
+                    text-align: center;
+}
+.hover-card:hover{
+       background-color: rgba(0,160,157,0.3);
+       /*#00A09D*/
+}
+.style_info{
+font-size: 1em;
+font-weight: bold;
+color:#1a5276;
+}
+.search_loan,.search_savings_account,.search_transactions,.search_charges,.search_shares_account{
+  width: 200px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('images/search.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.search_loan:focus,.search_savings_account:focus,.search_transactions:focus,.search_charges:focus,.search_shares_account:focus{
+  width: 100%;
+}
+.approved{
+padding : 12px 12px 5px 10px;
+background-color: blue;
+}
+.submitted_and_pending_approval{
+                        padding : 12px 12px 5px 10px;
+                        background-color: #ebeb14;
+}
+.rejected{
+padding : 12px 12px 5px 10px;
+background-color: gray;
+}
+.style_tr:hover{
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+.style_options_account{
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        text-decoration: none;
+}
+.style_options_account:hover{
+                background-color: #f5f5f5;
+                cursor: pointer;
+}
+.style_options_account:active{
+                color:#13b2d9;
+
+}
+.o_account_loans,.o_transactions,.o_charge{
+                                 border: 1px solid #cccc;
+}

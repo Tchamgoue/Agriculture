@@ -1,0 +1,138 @@
+
+
+{% extends "admin_farmer/basic.html" %}
+
+{% block custom_style %}
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="static/admin/plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="static/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="static/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="static/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="static/admin/dist/css/adminlte.min.css">
+  {% endblock %}
+
+
+  {% block content %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="margin-left: auto;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>List of crop request</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Farmer informations</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">            
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">View and search requests</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>ID Number</th>
+                    <th>Name</th>
+                    <th>crop</th>
+                    <th>Start_date</th>
+                    <th>End_date</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                               
+                  <tr>
+                    <td>Misc01</td>
+                    <td>New culture</td>
+                    <td>Banana</td>
+                    <td>23/09/2021</td>
+                    <td>27/09/2021</td>
+                  </tr>
+                  
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>ID Number</th>
+                      <th>Name</th>
+                      <th>Language</th>
+                      <th>City</th>
+                      <th>State</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}
+
+  {% block custom_js %}
+<!-- jQuery -->
+<script src="static/admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="static/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="static/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="static/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="static/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="static/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="static/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="static/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="static/admin/plugins/jszip/jszip.min.js"></script>
+<script src="static/admin/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="static/admin/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="static/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="static/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="static/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="static/admin/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="static/admin/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+{% endblock custom_js %}

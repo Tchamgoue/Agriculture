@@ -1,0 +1,39 @@
+.sekoo-dashboard{
+    .header{
+        background-color: rgb(2, 122, 192);
+        color: white!important;
+    }
+    .body{
+        color: rgb(2, 122, 192);
+    }
+    .footer{
+        background-color: rgb(2, 122, 192);
+        color: white!important;
+    }
+}
+
+.course-list{
+    h3{
+        background-color: #13B2D9;
+        color: white;
+        padding: 0.5em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border-radius: 2px; 
+    }
+}
+
+.sekoo-account-title{
+    background-color: #13B2D9;
+    color: white;
+    padding: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 2px; 
+}
+
+.dashboard-item-icon{
+    border:none;
+    background-color:transparent;
+    color:#13b2d9;
+}

@@ -1,0 +1,71 @@
+body{
+	background-color: #F5F5F5!important;
+}
+.ph_main_container{
+	margin-bottom: 2em!important;
+	.my-left{
+		padding:0.3em!important;
+		h1{
+			color: #2b7196;
+			margin: 1em;
+			margin-bottom: 2em;
+			text-align: center;
+		}
+		.content-left{
+			.content-left-row{
+				color:#2b7196;
+				a{
+					text-decoration: none;
+					color:#2b7196!important;
+					&:hover{
+						color:#2b7196!important;
+						text-decoration: underline;
+					}
+				}
+				background-color: white;
+				border-radius: 4px;
+				box-shadow: 0px 2px 2px 1px rgba(100, 100, 100, .2);
+				margin: 0.5em!important;
+				padding: 1em!important;
+				border: 1px solid rgb(200,200,200);
+			}
+		}
+	}
+
+
+	.my-right{
+		margin-top:4em!important;
+		justify-content: center!important;
+		.right-bg-image{
+			margin: auto!important;
+			width: 100%;
+			height: auto;
+		}
+
+		.overlay-sign-in{
+			right: 1em!important;
+			z-index: 10000;
+			bottom: 5%!important;
+			position: fixed;
+			margin: 0.5em!important;
+			padding: 1em!important;
+			border: 1px solid rgb(200,200,200);
+			text-align: center;
+			small{
+				margin-bottom: 0.5em;
+			}
+			.btn-info{
+				width:100%!important;
+				margin: 0.2em!important;
+			}
+			.btn-outline-info{
+				width:100%!important;
+				margin: 0.2em!important;
+			}
+		}
+	}
+}
+
+#joinNowLink{
+	display: none!important;
+}

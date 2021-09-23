@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block custom_style %}
+<link rel="stylesheet" type="text/css" href="static/css/aos.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="static/scss/style.css" rel="stylesheet">
+<style>
+    .categ-banner{
+        position:relative;
+    }
+
+    .categ-banner .title{
+        width:100%;
+        height:100%;
+        position:absolute;
+        z-index:15;
+    }
+
+    .categ-banner .product-overlay{
+        background-color:rgba(0,0,0,0.5);
+        width:100%;
+        height:100%;
+        position:absolute;
+        z-index:10;
+    }
+
+
+
+</style>
+{% endblock %}
+
+{% block banner %}
+<div class="categ-banner"
+     style="
+                    background:url('static/images/slider-01.jpg');
+                    background-size:cover;
+                    background-repeat:no-repeat;height:60vh;">
+    <div class="product-overlay"></div>
+    <div class="title d-flex flex-column justify-content-center align-items-center">
+        <h1 class="py-3 px-3 text-white" data-aos="fade-up" style="text-align:center;" data-aos-delay="100">
+            Page main title
+        </h1>
+        <a href="#start" class="d-block  m-icon py-3 px-3 text-white nav-link" style="text-align:center;"
+           data-aos="fade-down" data-aos-delay="200">
+                        <span class="material-icons">
+                            expand_more
+                        </span>
+        </a>
+    </div>
+</div>
+{% endblock banner %}
+
+{% block content %}
+
+<div class="container">
+    <!-- About Section -->
+    <div class="about-main">
+
+
+        <form action="farm_crops" method="post" class="form-horizontal mt32"
+              enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-6">
+                    {% csrf_token %}
+                    <h3 class="text-center mb8" style="color:#c38647;margin-bottom:2em;">Register Crops For your Farm Plantation</h3>
+                    <div class="col-lg-12 col-lg-12 mb-4">
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="name">Name</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="text" class="form-control" name="name" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="bionomical_name">Crop Period
+                                    Start</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="text" class="form-control" name="crop_period_start" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="spread">Crop Period End</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="text" class="form-control" name="crop_period_end"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+                    <h3 class="text-center mb8" style="color:#c38647;margin-bottom:2em;"></h3>
+                    <!--<h3 class="text-center mb8" style="color:#c38647;margin-bottom:2em;">Farmer Registration</h3>-->
+                    <div class="col-lg-12 col-lg-12 mb-4">
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="taxon">Warehouse</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <select class="form-control" name="warehouse_id">
+                                        <option>Choose a warehouse</option>
+                                        {% if warehouses %}
+                                            {% for warehouse in warehouses %}
+                                                {% for key in warehouse %}
+                                                    <option value="{{ key.id }}">{{ key.name }}</option>
+                                                {% endfor%}
+                                            {% endfor%}
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="sun_requirement_id">Stock
+                                    Location</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <select class="form-control" name="location_id">
+                                        <option>Choose a stock location</option>
+                                        {% if locations %}
+                                            {% for location in locations %}
+                                                {% for val in location %}
+                                                    <option value="{{ val.id }}">{{ val.name }}</option>
+                                                {% endfor%}
+                                            {% endfor%}
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-12 col-lg-12 mb-4">
+                        <div class="col-md-12 form-group" name="div_submit_main">
+                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7" name="div_submit">
+                                <button class="btn btn-lg btn-secondary btn-block">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block custom_js %}
+<script type="text/javascript" src="static/js/aos.js"></script>
+<script type="text/javascript">
+            AOS.init();
+
+
+
+</script>
+
+{% endblock custom_js %}

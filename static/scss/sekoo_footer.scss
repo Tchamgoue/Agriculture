@@ -1,0 +1,20 @@
+#sekoo-footer{
+    background-color: #283E4A!important;
+    color: white !important;
+    a{
+        color: white!important;
+        &:hover{
+            color: white!important;
+            font-weight: bolder!important;
+        }
+    }
+}
+
+#footer_copyright{
+    background-color: rgb(35, 53, 63)!important;
+    color: white !important;
+    padding: 0.5em!important;
+    span{
+        margin:auto;  
+    }
+}
