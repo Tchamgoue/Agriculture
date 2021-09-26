@@ -8,3 +8,7 @@ db.sqlite3
 /farm/migrations/
 /rmf/__pycache__/
 /rmf/migrations/
+/static/
+/static/scss/
+/static/vendors/
+/templates/
