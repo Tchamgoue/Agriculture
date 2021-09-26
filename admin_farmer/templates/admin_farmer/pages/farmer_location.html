@@ -118,20 +118,19 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form>
+                <form method="POST" action="farmer_location">
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="name" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
-                      <!-- textarea -->
                       <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="description" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                   </div>
@@ -161,20 +160,13 @@
                         </select>
                       </div>
                     </div>
-                    <!-- <div class="col-sm-4">
-                      <! textarea -->
-                      <!-- <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
-                      </div>
-                    </div> --> 
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="city" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                   </div>
@@ -183,14 +175,14 @@
                       <!-- text input -->
                       <div class="form-group">
                         <label>Latitude</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="latitude" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <!-- textarea -->
                       <div class="form-group">
                         <label>Longitude</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input type="text" name="longitude" class="form-control" placeholder="Enter ...">
                       </div>
                     </div>
                   </div>
