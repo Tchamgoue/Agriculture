@@ -15,9 +15,79 @@
   <link rel="stylesheet" href="static/admin/dist/css/adminlte.min.css">
   {% endblock %}
 
+  {% block sidebar-menu %}
+  <nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <!-- Add icons to the links using the .nav-icon class
+           with font-awesome or any other icon font library -->
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>
+            Dashboard
+            <span class="right badge badge-warning">Soon</span>
+          </p>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="#" class="nav-link active">
+          <i class="nav-icon fas fa-edit"></i>
+          <p>
+            Crop requests
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="add_crop_request" class="nav-link active">
+              <i class="far fa-circle nav-icon"></i>
+              <p>New crop request</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="list_crop_requests" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>All crop requests</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <!-- <li class="nav-header">FARMERS</li> -->
+      <li class="nav-item">
+        <a href="profile" class="nav-link">
+          <i class="nav-icon fas fa-book"></i>
+          <p>
+            Farmer informations
+            <!-- <i class="fas fa-angle-left right"></i> -->
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="farmer_location" class="nav-link">
+          <i class="nav-icon fas fa-map-marker-alt"></i>
+          <p>
+            Farmer location
+            <span class="right badge badge-danger">New</span>
+          </p>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="list_farmers" class="nav-link">
+          <i class="nav-icon fas fa-users"></i>
+          <p>
+            List farmers
+          </p>
+        </a>
+      </li>
+     
+    </ul>
+  </nav>
+  {% endblock  %}
 
   {% block content %}
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: auto;">
     <!-- Content Header (Page header) -->
