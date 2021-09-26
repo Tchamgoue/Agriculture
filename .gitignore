@@ -1,1 +1,10 @@
 db.sqlite3
+/admin_farmer/__pycache__/
+/admin_farmer/migrations/
+/agriculture/__pycache__/
+/crops/__pycache__/
+/crops/migrations/
+/farm/__pycache__/
+/farm/migrations/
+/rmf/__pycache__/
+/rmf/migrations/
