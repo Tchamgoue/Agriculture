@@ -76,10 +76,12 @@
 
 {% endblock %}
 
+
+
 {% block banner %}
 <div class="categ-banner"
      style="
-                    background:url('static/images/slider-01.jpg');
+                    background:url('static/images/slider-02.jpg');
                     background-size:cover;
                     background-repeat:no-repeat;height:35vh;">
     <div class="product-overlay"></div>
@@ -126,6 +128,7 @@
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <!-- <div class="row"> -->
     <div class="col-lg-8 mb-4 contact-left">
+        <!--TODO associate this form to a django model-->
         <h3>Send us a Message</h3>
         <form name="sentMessage" id="contactForm" novalidate>
             <div class="control-group form-group">
