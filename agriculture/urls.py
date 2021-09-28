@@ -24,5 +24,5 @@ urlpatterns = [
     path('', include('crops.urls')),
     path('', include('farm.urls')),
     path('', include('admin_farmer.urls')),
-    url('^home$', views.home, name='home'),
+    url('', views.home, name='home'),
 ]
