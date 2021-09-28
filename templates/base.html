@@ -7,7 +7,7 @@
     <meta name="author" content="">
 
     {% block title %}
-    <title>N & LW Lawn Care - Landscaping Bootstrap4 HTML5 Responsive Template </title>
+    <title>JKL - JUKUA LA KILIMO </title>
     {% endblock %}
     <!-- Bootstrap core CSS -->
     <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,7 @@
 </head>
 <body>
 <!-- Navigation -->
+{% block custom_navigation %}
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
     <div class="container">
         <a class="navbar-brand" href="home">
@@ -40,9 +41,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="about">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Services</a>-->
+<!--                </li>-->
                 <!-- <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Farmer Registration
@@ -54,18 +55,19 @@
                 </li> -->
 
                 <li class="nav-item">
-                    <a class="nav-link" href="contact">Contact</a>
+                    <a class="nav-link" href="contact">Contact Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="farmer_registration">Register now</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login"> Login</a>
+                    <a class="nav-link" href="login">Login</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+{% endblock %}
 
 <header class="slider-main">
     {% block banner %}
@@ -229,6 +231,7 @@
         <!--            </ul>-->
         <!--            &lt;!&ndash;social_footer_ul ends here&ndash;&gt;-->
         <!--        </div>-->
+    </div>
 </footer>
 
 <!-- Bootstrap core JavaScript -->
