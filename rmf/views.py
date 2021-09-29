@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.http.request import HttpRequest
 import odoorpc
@@ -74,7 +75,20 @@ def all_farmers_view(request):
         print("error")
 
 def login_view(request):
-     return render(request, 'rmf/login.html', {'error': 'Registration Failed'})
+    if request.method == 'POST':
+        login = request.POST.get('email')
+        passwd = request.POST.get('password')
+        if login and passwd:
+            try:
+                odoo = odoorpc.ODOO(host='62.171.170.214', protocol='jsonrpc', port=8069, timeout=360)
+                res = odoo.login('agriculture_db', login=login, password=passwd)
+                # print(f">>>>RESPONSE {res}")
+                # html = "<html><body>Welcome %s.</body></html>" % login
+                return HttpResponse( 'admin_farmer/pages/profile.html')
+            except Exception as e:
+                return render(request, 'rmf/login.html', {'error': 'Registration Failed'})
+    else:
+        return render(request, 'rmf/login.html')
     #return redirect('admin_farmer/pages/list_farmers.html')
 
 
