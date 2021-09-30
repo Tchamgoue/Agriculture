@@ -5,10 +5,13 @@ from django.shortcuts import render, redirect
 # Create your views here.
 
 HOST = "127.0.0.1"
+# HOST = "62.171.170.214"
 PROTOCOL = "jsonrpc"
 PORT = 8070
+# PORT = 8069
 TIMEOUT = 360
 DB = "ipm_local_db"
+# DB = "agriculture_db"
 ADMIN_LOGIN = "adess.demo@gmail.com"
 ADMIN_PASSWORD = "admin"
 
@@ -42,7 +45,6 @@ def get_farmer_registration_model():
     odoo = connection()
     FarmerRegistration = odoo.env['farmer.registration.request']
     return odoo, FarmerRegistration
-
 
 # get odoo crop request model
 def get_crop_request_model():
@@ -89,10 +91,8 @@ def farmer_registration_view(request):
                     }
                     farmer_id = FarmerRegistration.create(farmer)
                     farmer_number = FarmerRegistration.browse(farmer_id).number
-
                 except Exception as e:
                     return redirect('farmer_registration')
-
                 request.session['farmer_number'] = farmer_number
                 odoo.logout()
                 return redirect('farmer_registration_success')
@@ -134,15 +134,19 @@ def all_farmers_view(request):
         if len(request.POST) > 0:
             pass
         else:
-            odoo, FarmerRegistration = get_farmer_registration_model()
-            farmer_ids = FarmerRegistration.search([])
+            odoo, Partner = get_partner_model()
+            farmer_ids = Partner.search([('is_farmer','=',True)])
             farmers = []
             print(farmer_ids)
             for id in farmer_ids:
-                farmer = FarmerRegistration.browse(id)
+                farmer = Partner.browse(id)
                 print(farmer)
                 farmers.append(farmer)
-            return render(request, 'rmf/all_farmers.html', {'farmers': farmers})
+            return render(request, 'rmf/all_farmers.html', {
+                'farmers': farmers,
+                'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+                'username': request.session['username'] if 'username' in request.session.keys() else None
+            })
     else:
         print("error")
 
@@ -190,13 +194,27 @@ def user_account(request, **kwargs):
         if user:
             request.session['username'] = user.name
             farmer = Partner.browse(int(user.partner_id))
+            odoo, Crop = get_crops_model()
+            crops = Crop.search([])
+            odoo, FarmLocation = get_farm_location_model()
+            farm_location = FarmLocation.search([('is_location', '=', True)])
+            odoo, CropRequest = get_crop_request_model()
+            crop_requests = CropRequest.search([('user_id', '=', int(uid))])
+            farmers = Partner.search([
+                ('id', '!=', int(uid)),
+                ('is_farmer', '=', True)
+            ])
             if farmer.is_farmer:
                 return render(request, 'rmf/user_account.html', {
                     'status': 'confirmed' if user else 'unconfirmed',
                     'uid': uid,
                     'user': user,
                     'username': request.session['username'] if 'username' in request.session.keys() else None,
-                    'farmer': farmer[0] if farmer else None
+                    'farmer': farmer[0] if farmer else None,
+                    'crops_count': len(crops),
+                    'farm_location_count': len(farm_location),
+                    'crop_requests_count': len(crop_requests),
+                    'farmers_count': len(farmers)
                 })
             else:
                 return redirect('login')
@@ -209,14 +227,37 @@ def logout(request, **kwargs):
         del request.session[key]
     return redirect('/')
 
+
 def new_crop_request(request):
     return render(request, 'rmf/new_crop_request.html', {
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
     })
 
+
 def farmer_crops(request):
+    odoo, Crop = get_crops_model()
+    crops = Crop.search([])
+    f_crops = []
+    for crop_id in crops:
+        crop = Crop.browse(crop_id)
+        f_crops.append(crop)
     return render(request, 'rmf/farmer_crops.html', {
+        'crops': f_crops,
+        'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+        'username': request.session['username'] if 'username' in request.session.keys() else None
+    })
+
+
+def farmer_farms(request):
+    return render(request, 'rmf/farmer_farms.html', {
+        'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+        'username': request.session['username'] if 'username' in request.session.keys() else None
+    })
+
+
+def farmer_requests(request):
+    return render(request, 'rmf/farmer_crop_requests.html', {
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
     })

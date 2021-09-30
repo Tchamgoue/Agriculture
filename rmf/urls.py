@@ -11,5 +11,7 @@ urlpatterns = [
     url('^user_account$', views.user_account, name='user_account'),
     url('^logout$', views.logout, name='logout'),
     url('^new_crop_request$', views.new_crop_request, name='new crop request'),
-    url('^farmer_crops$', views.farmer_crops, name='Farmer crops')
+    url('^farmer_crops$', views.farmer_crops, name='Farmer crops'),
+    url('^farmer_farms$', views.farmer_farms, name='Farmer farms'),
+    url('^farmer_requests$', views.farmer_requests, name='Farmer requests')
 ]

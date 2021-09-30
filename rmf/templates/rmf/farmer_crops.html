@@ -30,8 +30,8 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="user_account">My Account</a>
                         <a class="dropdown-item" href="#">Dashboard</a>
-<!--                        <a class="dropdown-item" href="new_crop_request">Crop Request</a>-->
-<!--                        <a class="dropdown-item" href="#">Farms</a>-->
+                        <!--                        <a class="dropdown-item" href="new_crop_request">Crop Request</a>-->
+                        <!--                        <a class="dropdown-item" href="#">Farms</a>-->
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout">Logout</a>
                     </div>
@@ -56,40 +56,42 @@
 {% block content %}
 <div class="py-4">
     <h3>
-        My crops
+        Crops
     </h3>
     <div class="row d-flex flex-md-row flex-sm-column flex-direction-row
         justify-content-right align-items-center col-md-8 col-sm-8 col-xs-12">
+        <a href="user_account" class="mr-3">
+            <span class="material-icons">
+                reply_all
+            </span>
+        </a>
         <a href="#" class="btn btn-outline-success">Add crop</a>
     </div>
     <div>
+
         <table class="table table-bordered rounded mt-3 bg-white">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Name</th>
+                <th scope="col">Crop period start</th>
+                <th scope="col">Crop period end</th>
+                <th scope="col">Warehouse</th>
+                <th scope="col">Stock location</th>
+                <!--                <th scope="col">Description</th>-->
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+                {% for crop in crops %}
+                <tr>
+                    <th scope="row">{{crop.id}}</th>
+                    <td>{{crop.name}}</td>
+                    <td>{{crop.crop_period_start}}</td>
+                    <td>{{crop.crop_period_end}}</td>
+                    <td>{{crop.warehouse_id.name}}</td>
+                    <td>{{crop.location_id.name}}</td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
