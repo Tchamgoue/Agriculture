@@ -4,16 +4,18 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
-HOST = "127.0.0.1"
-# HOST = "62.171.170.214"
+# HOST = "127.0.0.1"
+HOST = "62.171.170.214"
 PROTOCOL = "jsonrpc"
-PORT = 8070
-# PORT = 8069
+# PORT = 8070
+PORT = 8069
 TIMEOUT = 360
-DB = "ipm_local_db"
-# DB = "agriculture_db"
-ADMIN_LOGIN = "adess.demo@gmail.com"
-ADMIN_PASSWORD = "admin"
+# DB = "ipm_local_db"
+DB = "agriculture_db"
+# ADMIN_LOGIN = "adess.demo@gmail.com"
+ADMIN_LOGIN = "admin"
+# ADMIN_PASSWORD = "admin"
+ADMIN_PASSWORD = "Dschang1"
 
 
 def connection():
@@ -45,6 +47,7 @@ def get_farmer_registration_model():
     odoo = connection()
     FarmerRegistration = odoo.env['farmer.registration.request']
     return odoo, FarmerRegistration
+
 
 # get odoo crop request model
 def get_crop_request_model():
@@ -135,7 +138,7 @@ def all_farmers_view(request):
             pass
         else:
             odoo, Partner = get_partner_model()
-            farmer_ids = Partner.search([('is_farmer','=',True)])
+            farmer_ids = Partner.search([('is_farmer', '=', True)])
             farmers = []
             print(farmer_ids)
             for id in farmer_ids:
@@ -229,10 +232,57 @@ def logout(request, **kwargs):
 
 
 def new_crop_request(request):
-    return render(request, 'rmf/new_crop_request.html', {
-        'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
-        'username': request.session['username'] if 'username' in request.session.keys() else None
-    })
+    if request.method == 'POST':
+        odoo, Crop = get_crops_model()
+        crops = Crop.search([])
+        f_crops = []
+        for crop_id in crops:
+            crop = Crop.browse(crop_id)
+            f_crops.append(crop)
+
+        crop_ids = int(request.POST["crop_id"])
+        description = request.POST['description']
+        end_date = request.POST['start_date']
+        start_date = request.POST['end_date']
+        name = request.POST['name']
+
+        values = {
+            "crop_ids": crop_ids,
+            # TODO add fields to get warehouse and location information
+            # "warehouse_id": int(request.POST['warehouse_id']),
+            # "location_id": int(request.POST['location_id']),
+            "description": description,
+            "end_date": end_date,
+            "start_date": start_date,
+            "name": name
+        }
+        # write value
+        if crop_ids and description \
+            and end_date and start_date \
+            and name:
+            odoo, CropRequest = get_crop_request_model()
+            res = CropRequest.create(values)
+        else:
+            res = None
+        return render(request, 'rmf/new_crop_request.html', {
+            'crops': f_crops,
+            'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+            'username': request.session['username'] if 'username' in request.session.keys() else None,
+            'error': 'error creating request' if not res else None,
+            'success': 'Request submitted successfully' if res else None
+        })
+    else:
+        odoo, Crop = get_crops_model()
+        crops = Crop.search([])
+        f_crops = []
+        for crop_id in crops:
+            crop = Crop.browse(crop_id)
+            f_crops.append(crop)
+        return render(request, 'rmf/new_crop_request.html', {
+            'crops': f_crops,
+            'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+            'username': request.session['username'] if 'username' in request.session.keys() else None
+        })
 
 
 def farmer_crops(request):
