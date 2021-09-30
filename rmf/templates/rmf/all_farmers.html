@@ -1,16 +1,89 @@
 {% extends "base.html" %}
 
+{% block custom_navigation %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="home">
+            <img src="static/images/kilimo.png" alt="logo" class="custom-logo"/>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact Us</a>
+                </li>
+                {% if uid %}
+                <div class="ml-3 btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{username}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user_account">My Account</a>
+                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <!--                        <a class="dropdown-item" href="new_crop_request">Crop Request</a>-->
+                        <!--                        <a class="dropdown-item" href="#">Farms</a>-->
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="logout">Logout</a>
+                    </div>
+                </div>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="farmer_registration">Register now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="login">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block banner%}
+{% endblock %}
+
 {% block content %}
 <div class="container">
     {% if farmers %}
     <div class="about-main">
-        <table class="table">
+        <div class="row">
+            <a href="user_account" class="mr-3">
+                <span class="material-icons">
+                    reply_all
+                </span>
+            </a>
+            <form class="form-inline col-md-6 col-sm-7 col-xs-12">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="material-icons">
+                                search
+                            </span>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="name/email">
+                </div>
+            </form>
+        </div>
+        <table class="table table-bordered bg-white rounded">
             <thead class="thead-light">
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Subject</th>
-                <th scope="col">State</th>
+                <th scope="col">Phone</th>
+                <!--                <th scope="col">State</th>-->
             </tr>
             </thead>
             <tbody>
@@ -18,8 +91,8 @@
             <tr>
                 <th scope="row">{{farmer.name}}</th>
                 <td>{{farmer.email}}</td>
-                <td>{% if farmer.subject is None %} {% endif %}</td>
-                <td>{% if farmer.state is 'draft' %} Pending {% else %} {{farmer.state}} {% endif %}</td>
+                <td>{% if farmer.phone is None %} {% endif %}</td>
+                <!--                <td>{% if farmer.state is 'draft' %} Pending {% else %} {{farmer.state}} {% endif %}</td>-->
             </tr>
             {% endfor %}
             </tbody>

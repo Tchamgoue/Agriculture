@@ -1,6 +1,73 @@
 {% extends "base.html" %}
 
 
+{% block custom_navigation %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="home">
+            <img src="static/images/kilimo.png" alt="logo" class="custom-logo"/>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link" href="#">Services</a>-->
+                <!--                </li>-->
+                <!-- <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Farmer Registration
+                   </a>
+                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                      <a class="dropdown-item" href="farmer_registration">Add Farmer</a>
+                      <a class="dropdown-item" href="all_farmers">View All Farmers</a>
+                   </div>
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact Us</a>
+                </li>
+                {% if uid %}
+                <div class="ml-3 btn-group">
+                    <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{username}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user_account">My Account</a>
+                        <a class="dropdown-item" href="#">Dashboard</a>
+<!--                        <a class="dropdown-item" href="#">Crop Request</a>-->
+<!--                        <a class="dropdown-item" href="#">Farms</a>-->
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="logout">Logout</a>
+                    </div>
+                </div>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="farmer_registration">Register now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="login">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block banner %}
+{% endblock banner %}
+
 {% block content %}
 
 <div class="about-main">
@@ -18,14 +85,14 @@
                         </strong> please note it for further communication and you will also receive email from our
                             team shortly, Please reply to that email for feature conversation.<br/></h5>
                         {% elif error %}
-                            </strong>{{ error }} <br/></h5>
+                        </strong>{{ error }} <br/></h5>
                         {% endif %}
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <img class="img-fluid rounded" src="static/images/about-img.jpg" alt=""/>
+            <img class="img-fluid rounded" src="static/images/hom4.jpg" alt=""/>
         </div>
     </div>
     <!-- /.row -->

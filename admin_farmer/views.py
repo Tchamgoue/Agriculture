@@ -16,5 +16,8 @@ def farmer_location_view(request):
 def add_crop_request_view(request):
     return render(request, 'admin_farmer/pages/add_crop_request.html')
 
-def list_crop_request_view(request):
-    return render(request, 'admin_farmer/pages/list_crops.html')
+def list_crop_requests_view(request):
+    return render(request, 'admin_farmer/pages/list_crop_requests.html')
+
+def profile_view(request):
+    return render(request, 'admin_farmer/pages/profile.html')
