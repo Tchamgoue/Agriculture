@@ -208,3 +208,15 @@ def logout(request, **kwargs):
     for key in list(request.session.keys()):
         del request.session[key]
     return redirect('/')
+
+def new_crop_request(request):
+    return render(request, 'rmf/new_crop_request.html', {
+        'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+        'username': request.session['username'] if 'username' in request.session.keys() else None
+    })
+
+def farmer_crops(request):
+    return render(request, 'rmf/farmer_crops.html', {
+        'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+        'username': request.session['username'] if 'username' in request.session.keys() else None
+    })

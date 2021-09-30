@@ -9,5 +9,7 @@ urlpatterns = [
     url('^contact$', views.contact_view, name='contact'),
     url('^about$', views.about_view, name='about_view'),
     url('^user_account$', views.user_account, name='user_account'),
-    url('^logout$', views.logout, name='logout')
+    url('^logout$', views.logout, name='logout'),
+    url('^new_crop_request$', views.new_crop_request, name='new crop request'),
+    url('^farmer_crops$', views.farmer_crops, name='Farmer crops')
 ]
