@@ -36,12 +36,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact Us</a>
                 </li>
+                {% if uid %}
+                <div class="ml-3 btn-group">
+                    <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{username}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user_account">My Account</a>
+                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <a class="dropdown-item" href="#">Crop Request</a>
+                        <a class="dropdown-item" href="#">Farms</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="logout">Logout</a>
+                    </div>
+                </div>
+                {% else %}
                 <li class="nav-item">
-                    <a class="nav-link active" href="farmer_registration">Register now</a>
+                    <a class="nav-link" href="farmer_registration">Register now</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
+                    <a class="nav-link active" href="login">Login</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -68,7 +85,7 @@
                         </strong> please note it for further communication and you will also receive email from our
                             team shortly, Please reply to that email for feature conversation.<br/></h5>
                         {% elif error %}
-                            </strong>{{ error }} <br/></h5>
+                        </strong>{{ error }} <br/></h5>
                         {% endif %}
                     </div>
                 </div>

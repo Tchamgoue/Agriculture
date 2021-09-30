@@ -8,4 +8,6 @@ urlpatterns = [
     url('^login$', views.login_view, name='login'),
     url('^contact$', views.contact_view, name='contact'),
     url('^about$', views.about_view, name='about_view'),
+    url('^user_account$', views.user_account, name='user_account'),
+    url('^logout$', views.logout, name='logout')
 ]

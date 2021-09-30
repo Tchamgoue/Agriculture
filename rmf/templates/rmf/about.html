@@ -43,12 +43,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact Us</a>
                 </li>
+                {% if uid %}
+                <div class="ml-3 btn-group">
+                    <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{username}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user_account">My Account</a>
+                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <a class="dropdown-item" href="#">Crop Request</a>
+                        <a class="dropdown-item" href="#">Farms</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="logout">Logout</a>
+                    </div>
+                </div>
+                {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="farmer_registration">Register now</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
+                    <a class="nav-link active" href="login">Login</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -70,19 +87,19 @@
                 <h2>About <span class="important-text">JLK</span></h2>
                 <p> As agriculture is the flagship activity of the continent, this ambitious project, targeting mainly
                     sub-Saharan Africa, has as main objectives:
-                    <ul>
-                        <li>To build an all-inclusive portal for supporting the IPM technologies deployment in Africa;</li>
-                        <li>To develop a portal for IPM technology transfer and outreach;</li>
-                        <li>To Establish an electronic technology gateway, which is a one-stop-shop to store, browse,
-                            search,
-                            query, and visualize IPM technologies;
-                        </li>
-                        <li>To link farmers to inputs and outputs – products and services;</li>
-                        <li> To provide a stand-alone gateway with all African countries boundaries and queries for
-                            identifying
-                            similar agroecology within the continent;
-                        </li>
-                    </ul>
+                <ul>
+                    <li>To build an all-inclusive portal for supporting the IPM technologies deployment in Africa;</li>
+                    <li>To develop a portal for IPM technology transfer and outreach;</li>
+                    <li>To Establish an electronic technology gateway, which is a one-stop-shop to store, browse,
+                        search,
+                        query, and visualize IPM technologies;
+                    </li>
+                    <li>To link farmers to inputs and outputs – products and services;</li>
+                    <li> To provide a stand-alone gateway with all African countries boundaries and queries for
+                        identifying
+                        similar agroecology within the continent;
+                    </li>
+                </ul>
                 </p>
             </div>
         </div>

@@ -3,7 +3,7 @@
 {% block custom_style %}
 <link rel="stylesheet" type="text/css" href="static/css/aos.css"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="static/scss/style.css" rel="stylesheet">
+<!--<link href="static/scss/style.css" rel="stylesheet">-->
 <style>
     .categ-banner{
         position:relative;
@@ -23,6 +23,8 @@
         position:absolute;
         z-index:10;
     }
+
+
 
 </style>
 
@@ -62,12 +64,29 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="contact">Contact Us</a>
                 </li>
+                {% if uid %}
+                <div class="ml-3 btn-group">
+                    <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{username}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user_account">My Account</a>
+                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <a class="dropdown-item" href="#">Crop Request</a>
+                        <a class="dropdown-item" href="#">Farms</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="logout">Logout</a>
+                    </div>
+                </div>
+                {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="farmer_registration">Register now</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
+                    <a class="nav-link active" href="login">Login</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -75,7 +94,6 @@
 {% endblock %}
 
 {% endblock %}
-
 
 
 {% block banner %}
@@ -182,9 +200,9 @@
             <a href="mailto:name@africsystems.com">info@africsystems.com
             </a>
         </p>
-<!--        <p>-->
-<!--            <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM-->
-<!--        </p>-->
+        <!--        <p>-->
+        <!--            <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM-->
+        <!--        </p>-->
     </div>
     <!-- Map Column -->
     <div class="col-lg-8 mb-4">
@@ -204,6 +222,8 @@
 <script type="text/javascript" src="static/js/aos.js"></script>
 <script type="text/javascript">
                 AOS.init();
+
+
 
 </script>
 
