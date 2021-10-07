@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-&egzeuo(oam#k%2#ac-dxqskgue+bx-ocq5-it%y%by1snp0vk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '62.171.170.214']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '62.171.170.214', 'kilimoo.org']
 
 
 # Application definition
@@ -39,13 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'agriculture',
-    'rmf',
-    'crops',
-    'farm',
+    'farmer_management',
+    #'crops',
+    #'farm',
     'admin_farmer',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,6 +60,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'agriculture.urls'
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES_DIR = [
     os.path.join(BASE_DIR, 'templates'),

@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block custom_style %}
+<link rel="stylesheet" type="text/css" href="static/css/aos.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="static/scss/style.css" rel="stylesheet">
+<style>
+    .categ-banner{
+        position:relative;
+    }
+
+    .categ-banner .title{
+        width:100%;
+        height:100%;
+        position:absolute;
+        z-index:15;
+    }
+
+    .categ-banner .product-overlay{
+        background-color:rgba(0,0,0,0.5);
+        width:100%;
+        height:100%;
+        position:absolute;
+        z-index:10;
+    }
+
+
+</style>
+{% endblock %}
+
+{% block custom_navigation %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="home">
+            <img src="static/images/kilimo.png" alt="logo" class="custom-logo"/>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link" href="#">Services</a>-->
+                <!--                </li>-->
+                <!-- <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Farmer Registration
+                   </a>
+                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                      <a class="dropdown-item" href="farmer_registration">Add Farmer</a>
+                      <a class="dropdown-item" href="all_farmers">View All Farmers</a>
+                   </div>
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="farmer_registration">Register now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block banner %}
+<div class="categ-banner"
+     style="
+    background:url('static/images/slider-06.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;height:35vh;">
+    <div class="product-overlay"></div>
+    <div class="title d-flex flex-column justify-content-center align-items-center">
+        <h1 class="py-3 px-3 text-white" data-aos="fade-up" style="text-align:center;" data-aos-delay="100">
+            Farmer Registration
+        </h1>
+        <!-- <nav aria-label="breadcrumb"> 
+                <ol class="breadcrumb"> 
+                        <li class="breadcrumb-item"><a href="#">Home
+        </a></li> 
+                        <li class="breadcrumb-item active" 
+        aria-current="page">Join us</li> 
+                </ol> 
+        </nav> -->
+        <!-- <a href="#start" class="d-block  m-icon py-3 px-3 text-white nav-link" style="text-align:center;"
+           data-aos="fade-down" data-aos-delay="200">
+                    <span class="material-icons">
+                        expand_more
+                    </span>
+        </a> -->
+    </div>
+</div>
+{% endblock banner %}
+
+{% block content %}
+
+<div class="container">
+    <!-- About Section -->
+    <div class="about-main">
+        <div class="row">
+            <div class="col-lg-6">
+                <form action="farmer_registration" method="post" class="form-horizontal mt32"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h3 class="text-center mb8" style="color:#c38647;margin-bottom:1em;font-weight:800">Farmer
+                        Registration</h3>
+                    <div class="col-lg-12 col-lg-12 mb-4">
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="name">Your Name</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="text" class="form-control" id="name" name="name" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="name_local_lang">Name In Local
+                                    Language</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="text" class="form-control" name="name_local_lang" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="mobile">Mobile</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="text" class="form-control" name="mobile" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="phone">Phone</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="text" class="form-control" name="phone" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div t-attf-class="form-group" name="div_name">
+                                <label class="col-md-12 col-sm-12 control-label" for="email">Email</label>
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="email" class="form-control" name="email" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 col-lg-12 mb-4">
+                        <div class="col-md-12 form-group" name="div_submit_main">
+                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7" name="div_submit">
+                                <button class="btn btn-lg btn-secondary btn-block">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <img class="img img-responsive img-fluid mb32 rounded"
+                     src="static/img/farmer2.jpg"
+                     style="width:100%; height:100%;">
+                <div class="d-none d-sm-block  d-none d-xs-block header-text httal htvam">
+                    <h2 id="header_293" class="form-header"
+                        data-component="header">Great companies are built with great people
+                    </h2>
+                    <input type="hidden" class="post_active" t-att-value="post_job_active"/>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block custom_js %}
+<script type="text/javascript" src="static/js/aos.js"></script>
+<script type="text/javascript">
+            AOS.init();
+
+
+</script>
+
+{% endblock custom_js %}

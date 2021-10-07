@@ -1,0 +1,40 @@
+.carousel-caption{
+    background-color:rgba(0,0,0,0.8);
+    border-radius:10px;
+}
+
+.carousel-caption > h3{
+    font-weight:800;
+    font-size:2rem;
+}
+
+.carousel-caption > p{
+    font-size:1rem;
+}
+
+.carousel-indicators >li {
+    border-radius:50%;
+    width:10px;
+    height:10px;
+}
+
+.custom-logo{
+    width:100px!important;
+    height:auto!important;
+}
+
+.service-img{
+    height:15em;
+    width:100%;
+}
+
+h1{
+    font-weight:800!important;
+}
+
+h2{
+    font-weight:800!important;
+}
+.important-text{
+    color: #52ae3a!important;
+}

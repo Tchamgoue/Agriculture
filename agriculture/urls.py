@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('crops.urls')),
     path('', include('farm.urls')),
     path('', include('admin_farmer.urls')),
+    url(r'^api/analogy_climate$', views.analogy),
     url('', views.home, name='home'),
 ]
