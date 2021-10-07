@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container m-auto">
+    <div class="row py-4">
+        <div class="col-md-9 col-sm-8 col-xs-12">
+            <h3>My Documents</h3>
+            <!--            class="col-md-6 col-sm-6 col-xs-12"-->
+            <div class="list-group col-md-7 col-sm-7 col-xs-12">
+                <a href="farmer_crops" class="list-group-item d-flex justify-content-between align-items-center">
+                    My crops
+                    <span class="badge badge-primary badge-pill">
+                        2
+                    </span>
+                </a>
+                 <a href="farmer_farms" class="list-group-item d-flex justify-content-between align-items-center">
+                    My Farms
+                    <span class="badge badge-primary badge-pill">
+                        3
+                    </span>
+                </a>
+                <a href="farmer_requests" class="list-group-item d-flex justify-content-between align-items-center">
+                    My crop requests
+                    <span class="badge badge-primary badge-pill">
+                        0
+                    </span>
+                </a>
+                <a href="all_farmers" class="list-group-item d-flex justify-content-between align-items-center">
+                    Search farmers
+                    <span class="badge badge-primary badge-pill">
+                        0
+                    </span>
+                </a>
+                <a href="" class="list-group-item d-flex justify-content-between align-items-center">
+                    Chain values
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-12 border-left">
+            <h3>Information</h3>
+            <span class="material-icons mr-2">person</span>{{user.name}}<br/>
+            <span class="material-icons mr-2">email</span>{{user.email}}<br/>
+            <span class="material-icons mr-2">phone</span>{{user.phone}}<br/>
+        </div>
+    </div>
+</div>
+{% endblock %}

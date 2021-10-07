@@ -1,4 +1,5 @@
 from django.conf.urls import url
+
 from . import views
 
 urlpatterns = [
@@ -13,5 +14,7 @@ urlpatterns = [
     url('^new_crop_request$', views.new_crop_request, name='new crop request'),
     url('^farmer_crops$', views.farmer_crops, name='Farmer crops'),
     url('^farmer_farms$', views.farmer_farms, name='Farmer farms'),
-    url('^farmer_requests$', views.farmer_requests, name='Farmer requests')
+    url('^farmer_requests$', views.farmer_requests, name='Farmer requests'),
+    url('^crops_registration$', views.crops_registration_view, name="crops_registration"),
+    url('^farm_location_registration$', views.farm_location_registration_view, name="farm_registration")
 ]

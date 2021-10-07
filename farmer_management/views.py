@@ -1,4 +1,5 @@
 import odoorpc
+from django import forms
 from django.http.request import HttpRequest
 from django.shortcuts import render, redirect
 
@@ -30,48 +31,54 @@ def connect_farmer(login, passwd):
     return odoo
 
 
+adminOdoo = connection()
+
+
 def get_user_model():
-    odoo = connection()
-    Users = odoo.env['res.users']
-    return odoo, Users
+    Users = adminOdoo.env['res.users']
+    return Users
 
 
 def get_partner_model():
-    odoo = connection()
-    Partner = odoo.env['res.partner']
-    return odoo, Partner
+    Partner = adminOdoo.env['res.partner']
+    return Partner
 
 
 # get odoo farmer model
 def get_farmer_registration_model():
-    odoo = connection()
-    FarmerRegistration = odoo.env['farmer.registration.request']
-    return odoo, FarmerRegistration
+    FarmerRegistration = adminOdoo.env['farmer.registration.request']
+    return FarmerRegistration
 
 
 # get odoo crop request model
 def get_crop_request_model():
-    odoo = connection()
-    CropRequest = odoo.env['farmer.cropping.request']
-    return odoo, CropRequest
+    CropRequest = adminOdoo.env['farmer.cropping.request']
+    return CropRequest
 
 
 def get_crops_model():
-    odoo = connection()
-    Crop = odoo.env['farmer.location.crops']
-    return odoo, Crop
+    Crop = adminOdoo.env['farmer.location.crops']
+    return Crop
 
 
 def get_farm_location_model():
-    odoo = connection()
-    FarmLocation = odoo.env['res.partner']
-    return odoo, FarmLocation
+    FarmLocation = adminOdoo.env['res.partner']
+    return FarmLocation
 
 
 def get_farmer_model():
-    odoo = connection()
-    Farmer = odoo.env['res.partner']
-    return odoo, Farmer
+    Farmer = adminOdoo.env['res.partner']
+    return Farmer
+
+
+# decorators
+def authenticate(func):
+    def wrapper(request):
+        if "uid" in request.session.keys():
+            return func(request)
+        else:
+            return redirect('login')
+    return wrapper
 
 
 # for each views bellow we always check if user is connected or not.
@@ -83,7 +90,7 @@ def farmer_registration_view(request):
     else:
         if isinstance(request, HttpRequest):
             if len(request.POST) > 0:
-                odoo, FarmerRegistration = get_farmer_registration_model()
+                FarmerRegistration = get_farmer_registration_model()
                 try:
                     farmer = {
                         'name': request.POST['name'],
@@ -97,7 +104,7 @@ def farmer_registration_view(request):
                 except Exception as e:
                     return redirect('farmer_registration')
                 request.session['farmer_number'] = farmer_number
-                odoo.logout()
+                adminOdoo.logout()
                 return redirect('farmer_registration_success')
             else:
                 return render(request, 'farmer_management/farmer_registration.html', {
@@ -137,13 +144,12 @@ def all_farmers_view(request):
         if len(request.POST) > 0:
             pass
         else:
-            odoo, Partner = get_partner_model()
+            Partner = get_partner_model()
             farmer_ids = Partner.search([('is_farmer', '=', True)])
             farmers = []
             print(farmer_ids)
             for id in farmer_ids:
                 farmer = Partner.browse(id)
-                print(farmer)
                 farmers.append(farmer)
             return render(request, 'farmer_management/all_farmers.html', {
                 'farmers': farmers,
@@ -190,18 +196,18 @@ def user_account(request, **kwargs):
     # get user account state on odoo "confirm" or "not"
     if 'uid' in request.session:
         uid = int(request.session['uid'])
-        odoo, Users = get_user_model()
+        Users = get_user_model()
         user = Users.browse(int(uid))
-        odoo, Partner = get_partner_model()
+        Partner = get_partner_model()
         farmer = {}
         if user:
             request.session['username'] = user.name
             farmer = Partner.browse(int(user.partner_id))
-            odoo, Crop = get_crops_model()
+            Crop = get_crops_model()
             crops = Crop.search([])
-            odoo, FarmLocation = get_farm_location_model()
+            FarmLocation = get_farm_location_model()
             farm_location = FarmLocation.search([('is_location', '=', True)])
-            odoo, CropRequest = get_crop_request_model()
+            CropRequest = get_crop_request_model()
             crop_requests = CropRequest.search([('user_id', '=', int(uid))])
             farmers = Partner.search([
                 ('id', '!=', int(uid)),
@@ -230,10 +236,11 @@ def logout(request, **kwargs):
         del request.session[key]
     return redirect('/')
 
-
+@authenticate
 def new_crop_request(request):
+    uid = request.session['uid'] if 'uid' in request.session.keys() else None
     if request.method == 'POST':
-        odoo, Crop = get_crops_model()
+        Crop = get_crops_model()
         crops = Crop.search([])
         f_crops = []
         for crop_id in crops:
@@ -247,6 +254,7 @@ def new_crop_request(request):
         name = request.POST['name']
 
         values = {
+            "user_id": uid,
             "crop_ids": crop_ids,
             # TODO add fields to get warehouse and location information
             # "warehouse_id": int(request.POST['warehouse_id']),
@@ -258,9 +266,9 @@ def new_crop_request(request):
         }
         # write value
         if crop_ids and description \
-            and end_date and start_date \
-            and name:
-            odoo, CropRequest = get_crop_request_model()
+                and end_date and start_date \
+                and name:
+            CropRequest = get_crop_request_model()
             res = CropRequest.create(values)
         else:
             res = None
@@ -272,7 +280,7 @@ def new_crop_request(request):
             'success': 'Request submitted successfully' if res else None
         })
     else:
-        odoo, Crop = get_crops_model()
+        Crop = get_crops_model()
         crops = Crop.search([])
         f_crops = []
         for crop_id in crops:
@@ -286,7 +294,7 @@ def new_crop_request(request):
 
 
 def farmer_crops(request):
-    odoo, Crop = get_crops_model()
+    Crop = get_crops_model()
     crops = Crop.search([])
     f_crops = []
     for crop_id in crops:
@@ -300,14 +308,74 @@ def farmer_crops(request):
 
 
 def farmer_farms(request):
+    Farms = get_farm_location_model()
+    farms = Farms.search([('is_location','=',True)])
+    f_farms = []
+    for f_id in farms:
+        farm = Farms.browse(f_id)
+        farm.count_crop = len(farm.crop_ids)
+        f_farms.append(farm)
     return render(request, 'farmer_management/farmer_farms.html', {
+        'farms': f_farms,
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
     })
 
-
+@authenticate
 def farmer_requests(request):
+    uid = request.session['uid'] if 'uid' in request.session.keys() else None
+    Crops = get_crop_request_model()
+    c_rs = Crops.search([('user_id', '=', int(uid))])
+    f_cr = []
+    for cr_id in c_rs:
+        cr = Crops.browse(cr_id)
+        f_cr.append(cr)
     return render(request, 'farmer_management/farmer_crop_requests.html', {
+        'crop_requests':f_cr,
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
     })
+
+
+@authenticate
+def crops_registration_view(request):
+    if isinstance(request, HttpRequest):
+        if len(request.POST) > 0:
+            crop = forms.CropsRegistration(request.POST)
+            if crop.is_valid():
+                print("ok")
+            else:
+                print(crop.data)
+                return render(request, "farmer_management/crops_registration.html", {
+                    'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+                    'username': request.session['username'] if 'username' in request.session.keys() else None
+                })
+        else:
+            return render(request, "farmer_management/crops_registration.html", {
+                'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+                'username': request.session['username'] if 'username' in request.session.keys() else None
+            })
+    else:
+        return redirect('home')
+
+
+@authenticate
+def farm_location_registration_view(request):
+    if isinstance(request, HttpRequest):
+        if len(request.POST) > 0:
+            crop = forms.CropsRegistration(request.POST)
+            if crop.is_valid():
+                print("ok")
+            else:
+                print(crop.data)
+                return render(request, "farmer_management/crops_registration.html", {
+                    'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+                    'username': request.session['username'] if 'username' in request.session.keys() else None
+                })
+        else:
+            return render(request, "farmer_management/crops_registration.html", {
+                'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
+                'username': request.session['username'] if 'username' in request.session.keys() else None
+            })
+    else:
+        return redirect('home')

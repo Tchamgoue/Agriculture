@@ -64,39 +64,60 @@
                     reply_all
                 </span>
             </a>
-            <form class="form-inline col-md-6 col-sm-7 col-xs-12">
-                <div class="input-group mb-2 mr-sm-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span class="material-icons">
-                                search
-                            </span>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="name/email">
-                </div>
-            </form>
+            <h3>Farmers</h3>
         </div>
-        <table class="table table-bordered bg-white rounded">
-            <thead class="thead-light">
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-                <!--                <th scope="col">State</th>-->
-            </tr>
-            </thead>
-            <tbody>
-            {% for farmer in farmers %}
-            <tr>
-                <th scope="row">{{farmer.name}}</th>
-                <td>{{farmer.email}}</td>
-                <td>{% if farmer.phone is None %} {% endif %}</td>
-                <!--                <td>{% if farmer.state is 'draft' %} Pending {% else %} {{farmer.state}} {% endif %}</td>-->
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <div>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h3 class="card-title">View and search farmers</h3>
+                                    <a href="farmer_registration" class="btn btn-outline-success">Register</a>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">ID#</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phone</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for farmer in farmers %}
+                                        <tr>
+                                            <th scope="row">{{farmer.id}}</th>
+                                            <td>{{farmer.name}}</td>
+                                            <td>{{farmer.email}}</td>
+                                            <td>{% if farmer.phone is None %} {% endif %}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th scope="col">ID#</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phone</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+        </div>
     </div>
     {% endif %}
 </div>

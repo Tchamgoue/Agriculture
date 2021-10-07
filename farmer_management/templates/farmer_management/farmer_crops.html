@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block custom_navigation %}
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
     <div class="container">
@@ -51,13 +52,11 @@
 {% endblock %}
 
 {% block banner %}
+
 {% endblock %}
 
 {% block content %}
 <div class="py-4">
-    <h3>
-        Crops
-    </h3>
     <div class="row d-flex flex-md-row flex-sm-column flex-direction-row
         justify-content-right align-items-center col-md-8 col-sm-8 col-xs-12">
         <a href="user_account" class="mr-3">
@@ -65,35 +64,72 @@
                 reply_all
             </span>
         </a>
-        <a href="#" class="btn btn-outline-success">Add crop</a>
+        <h3>
+            Crops
+        </h3>
     </div>
     <div>
-
-        <table class="table table-bordered rounded mt-3 bg-white">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Crop period start</th>
-                <th scope="col">Crop period end</th>
-                <th scope="col">Warehouse</th>
-                <th scope="col">Stock location</th>
-                <!--                <th scope="col">Description</th>-->
-            </tr>
-            </thead>
-            <tbody>
-                {% for crop in crops %}
-                <tr>
-                    <th scope="row">{{crop.id}}</th>
-                    <td>{{crop.name}}</td>
-                    <td>{{crop.crop_period_start}}</td>
-                    <td>{{crop.crop_period_end}}</td>
-                    <td>{{crop.warehouse_id.name}}</td>
-                    <td>{{crop.location_id.name}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h3 class="card-title">View and search crops</h3>
+                                <a href="crops_registration" class="btn btn-outline-success">Add crop</a>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Crop period start</th>
+                                        <th scope="col">Crop period end</th>
+                                        <th scope="col">Warehouse</th>
+                                        <th scope="col">Stock location</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for crop in crops %}
+                                    <tr>
+                                        <th scope="row">{{crop.id}}</th>
+                                        <td>{{crop.name}}</td>
+                                        <td>{{crop.crop_period_start}}</td>
+                                        <td>{{crop.crop_period_end}}</td>
+                                        <td>{{crop.warehouse_id.name}}</td>
+                                        <td>{{crop.location_id.name}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Crop period start</th>
+                                        <th scope="col">Crop period end</th>
+                                        <th scope="col">Warehouse</th>
+                                        <th scope="col">Stock location</th>
+                                        <!--                                        <th scope="col">Description</th>-->
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
     </div>
 </div>
 {% endblock %}
+
+{% block custom_js %}
+
+{% endblock custom_js %}
