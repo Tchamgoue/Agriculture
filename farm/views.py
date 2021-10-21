@@ -66,7 +66,7 @@ def add_crops_to_farm(request):
                 locations.append(location)
 
             return render(request, 'farm/farm_crops.html',
-                          {'crops': crops, 'warehouses': warehouses, 'locations': locations})
+                          {'crops': crops, 'warehouses': warehouses, 'locations': locations,"title":"Crops-JLK"})
     else:
         return redirect('home')
 
@@ -97,6 +97,6 @@ def add_farm_location(request):
                 # print(crop)
                 crops.append(crop)
             print(crops[0])
-            return render(request, 'farm/farm_plantation.html', {'crops': crops})
+            return render(request, 'farm/farm_plantation.html', {'crops': crops,"title":"Farm-JLK"})
     else:
         return redirect('home')

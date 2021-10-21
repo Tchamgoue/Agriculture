@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block custom_navigation %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="home">
+            <img src="static/images/kilimo.png" alt="logo" class="custom-logo"/>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact Us</a>
+                </li>
+                {% if uid %}
+                <div class="ml-3 btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{username}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user_account">My Account</a>
+                        <a class="dropdown-item" href="#">Dashboard</a>
+<!--                        <a class="dropdown-item" href="new_crop_request">Crop Request</a>-->
+<!--                        <a class="dropdown-item" href="#">Farms</a>-->
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="logout">Logout</a>
+                    </div>
+                </div>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="farmer_registration">Register now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="login">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block banner %}
+{% endblock banner %}
+
+{% block content %}
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+	integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+	crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+	integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+	crossorigin=""></script>
+
+<div class="container m-auto">
+    {% if status == 'unconfirmed'%}
+    <div class="alert alert-success py-1 mt-3">
+        <p>
+            Your account is not yet active. Please check your emails.
+        </p>
+    </div>
+    {% else %}
+    <div class="row py-4">
+        <div class="col-md-9 col-sm-8 col-xs-12">
+            <h3>Agro similarity</h3>
+          
+            <form method="post" action="#" id="form-similarity">
+                <h5>Choose point on the map</h5>
+                <div class="map" id="map" style="width:800px; height:505px;">
+                    
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-group col lg-6">
+                        <label for="longitude">Longitude</label>
+                        <input type="text" name="longitude" id="longitude" readonly="true" class="form-control" />		
+                    </div>
+                    <div class="form-group col lg-8">
+                        <label for="latitude">Latitude</label>
+                        <input type="text" name="latitude" id="latitude" readonly="true" class="form-control" />	
+                    </div>  
+                </div>
+                
+                <button type="submit" class="btn btn-success">Similarity computation</button>
+                </form>
+        </div>
+        {% comment %} <div class="col-md-3 col-sm-4 col-xs-12 border-left">
+            <h3>Information</h3>
+            <span class="material-icons mr-2">person</span>{{user.name}}<br/>
+            <span class="material-icons mr-2">email</span>{{user.email}}<br/>
+            <span class="material-icons mr-2">phone</span>{{user.phone}}<br/>
+        </div> {% endcomment %}
+    </div>
+    {% endif %}
+</div>
+<script src="{% static 'js/map/cameroon_state.js' %}"></script>
+<script src="{% static 'js/map/all_json_country.js' %}"></script>
+
+
+<script type="text/javascript">
+var base_maker=false;
+(function($) {
+    $(function(e){
+        function getRandomIntInclusive(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min +1)) + min;
+        }
+
+        function getColor(feature){
+            var array_color=["#e9fbec","#bdf4c6","#91eda0","#65e67a","#39df54","#20c63a","#199a2d","#126e20","#0b4213","#041606"]
+            var rand_number=getRandomIntInclusive(0,array_color.length-1)
+            return array_color[rand_number];
+        }
+function findStyle(feature) {
+    return {
+        fillColor: getColor(feature.properties.density),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+var colormap=L.map("map", {
+					center : [ 3.811969898599434, 11.513855999999999 ],
+					zoom :1
+				}).setView([ 3.811969898599434, 11.513855999999999 ], 1);
+$("#longitude").val("3.811969898599434");
+$("#latitude").val("11.513855999999999 ")
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Agro-ecology similarity',
+		id: 'mapbox/light-v9',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(colormap);
+
+//.geoJson(all_country_geojson,{style:findStyle}).addTo(colormap);
+var marker=L.marker([3.811969898599434,11.53788859277347]);
+
+var markers=[]
+markers.push(marker);
+//alert("Bonjour");
+markers[0].addTo(colormap);
+
+//L.geoJson(cameroon_cart,{style:findStyle}).addTo(colormap);
+//L.geoson(cameroon_cart).addTo(colormap);
+
+/*var circle = L.circle([51.505, 11.53788859277347], {radius: 1000000,  color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5},).addTo(colormap);*/
+
+colormap.on("click", function(e){
+                    var marker_temp=L.marker([e.latlng.lat,e.latlng.lng]);
+                    if (base_maker==false){
+                        colormap.removeLayer(markers[0]);
+                        markers[0]=marker_temp;
+                    }
+                    else {
+                        markers.push(marker_temp)
+                    }
+                    markers[markers.length-1].addTo(colormap);
+                    //alert(markers.length)
+					var p=e.latlng;
+					
+					$("#latitude").val(p.lat.toString());
+					$("#longitude").val(p.lng.toString());
+				});
+        $("#btnmake_base").click(function(event){
+            base_maker=true;
+            //alert("Clicking");
+        });
+        $("#rase-all").click(function(event){
+            base_maker=false;
+            for (i=1;i<markers.length;i++){
+                colormap.removeLayer(markers[i]);
+            }
+            markers=[markers[0]]
+        });
+    });
+   // bonou
+   $("#form-similarity").on("submit",function(evt){
+
+       evt.preventDefault();
+       $("#pageloader .loader-text").html("<h3 style='color:#fff'>Similarity computation in progress...</h3>")
+       $("#pageloader").fadeIn();
+
+        var longitude=$("#longitude").val();
+        var latitude=$("#latitude").val();
+
+        $.ajax({
+            url:"http://62.171.170.214:8000/api/analogy_climate",
+            method:"POST",
+            timeout:0,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            headers:{"Content-type":"text/plain"},
+            data:{
+                "source_lat":latitude,
+                "source_long":longitude
+            },
+            success:function(result){
+                $("#pageloader").fadeOut();
+                alert("Similarity perform with success");
+            },
+            error:function(result){
+                $("#pageloader").fadeOut();
+                alert("Error during similarity performing");
+            }
+        });
+        
+
+   });
+})(jQuery);
+
+
+
+</script>
+{% endblock content %}

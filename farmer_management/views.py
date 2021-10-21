@@ -108,6 +108,7 @@ def farmer_registration_view(request):
                 return redirect('farmer_registration_success')
             else:
                 return render(request, 'farmer_management/farmer_registration.html', {
+                    "title":"Famer registration -JLK",
                     'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
                     'username': request.session['username'] if 'username' in request.session.keys() else None
                 })
@@ -125,6 +126,7 @@ def farmer_registration_success_view(request, **kwargs):
             else:
                 if 'farmer_number' in request.session:
                     return render(request, 'farmer_management/farmer_registration_success.html', {
+                        "title":"Famer Registration-JLK",
                         'farmer_number': request.session['farmer_number'],
                         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
                         'username': request.session['username'] if 'username' in request.session.keys() else None
@@ -132,6 +134,7 @@ def farmer_registration_success_view(request, **kwargs):
                 else:
                     return render(request, 'farmer_management/farmer_registration_success.html', {
                         'error': 'Registration Failed',
+                        "title":"Famer registration-JLK",
                         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
                         'username': request.session['username'] if 'username' in request.session.keys() else None
                     })
@@ -152,6 +155,7 @@ def all_farmers_view(request):
                 farmer = Partner.browse(id)
                 farmers.append(farmer)
             return render(request, 'farmer_management/all_farmers.html', {
+                'title':"Famers list-JLK",
                 'farmers': farmers,
                 'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
                 'username': request.session['username'] if 'username' in request.session.keys() else None
@@ -172,13 +176,14 @@ def login_view(request):
                 request.session['uid'] = odoo._env.uid
                 return redirect('user_account')
             except Exception as e:
-                return render(request, 'farmer_management/login.html', {'error': 'Registration Failed'})
+                return render(request, 'farmer_management/login.html', {'error': 'Registration Failed',"title":"Login-JLK"})
         else:
             return render(request, 'farmer_management/login.html', {})
 
 
 def contact_view(request):
     return render(request, 'farmer_management/contact.html', {
+        "title":"Contact us-JLK",
         'contact': 'contact',
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
@@ -187,6 +192,7 @@ def contact_view(request):
 
 def about_view(request):
     return render(request, 'farmer_management/about.html', {
+        "title":"About-JLK",
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
     })
@@ -215,6 +221,7 @@ def user_account(request, **kwargs):
             ])
             if farmer.is_farmer:
                 return render(request, 'farmer_management/user_account.html', {
+                    "title":"User account-JLK",
                     'status': 'confirmed' if user else 'unconfirmed',
                     'uid': uid,
                     'user': user,
@@ -234,7 +241,7 @@ def user_account(request, **kwargs):
 def logout(request, **kwargs):
     for key in list(request.session.keys()):
         del request.session[key]
-    return redirect('/')
+    return redirect('home')
 
 @authenticate
 def new_crop_request(request):
@@ -273,6 +280,7 @@ def new_crop_request(request):
         else:
             res = None
         return render(request, 'farmer_management/new_crop_request.html', {
+            "title":"Crops request-JLK",
             'crops': f_crops,
             'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
             'username': request.session['username'] if 'username' in request.session.keys() else None,
@@ -287,6 +295,7 @@ def new_crop_request(request):
             crop = Crop.browse(crop_id)
             f_crops.append(crop)
         return render(request, 'farmer_management/new_crop_request.html', {
+            "title":"Crop request -JLK",
             'crops': f_crops,
             'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
             'username': request.session['username'] if 'username' in request.session.keys() else None
@@ -301,6 +310,7 @@ def farmer_crops(request):
         crop = Crop.browse(crop_id)
         f_crops.append(crop)
     return render(request, 'farmer_management/farmer_crops.html', {
+        "title":"Farmer Crops-JLK",
         'crops': f_crops,
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
@@ -316,6 +326,7 @@ def farmer_farms(request):
         farm.count_crop = len(farm.crop_ids)
         f_farms.append(farm)
     return render(request, 'farmer_management/farmer_farms.html', {
+        "title":"Farmer fams-JLK",
         'farms': f_farms,
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
@@ -331,6 +342,7 @@ def farmer_requests(request):
         cr = Crops.browse(cr_id)
         f_cr.append(cr)
     return render(request, 'farmer_management/farmer_crop_requests.html', {
+        "title":"Crops request-JLK",
         'crop_requests':f_cr,
         'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
         'username': request.session['username'] if 'username' in request.session.keys() else None
@@ -352,6 +364,7 @@ def crops_registration_view(request):
                 })
         else:
             return render(request, "farmer_management/crops_registration.html", {
+                "title":"Crops registration-JLK",
                 'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
                 'username': request.session['username'] if 'username' in request.session.keys() else None
             })
@@ -370,12 +383,23 @@ def farm_location_registration_view(request):
                 print(crop.data)
                 return render(request, "farmer_management/crops_registration.html", {
                     'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
-                    'username': request.session['username'] if 'username' in request.session.keys() else None
+                    'username': request.session['username'] if 'username' in request.session.keys() else None,
+                    "title":"Crops registration-JLK"
                 })
         else:
             return render(request, "farmer_management/crops_registration.html", {
                 'uid': request.session['uid'] if 'uid' in request.session.keys() else None,
-                'username': request.session['username'] if 'username' in request.session.keys() else None
+                'username': request.session['username'] if 'username' in request.session.keys() else None,
+                "title":"Crops registration-JLK"
             })
     else:
         return redirect('home')
+
+@authenticate
+def agro_similarity_view(request):
+    return render(request,"farmer_management/agro_similarity.html",{
+        "uid":request.session.get("uid",None),
+        "username":request.session.get("username",None),
+        "title":"Similarity-JLK"
+    })
+    

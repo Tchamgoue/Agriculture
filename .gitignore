@@ -9,3 +9,4 @@ db.sqlite3
 /rmf/__pycache__/
 /rmf/migrations/
 /venv
+env/*
