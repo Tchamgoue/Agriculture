@@ -22,7 +22,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('home', views.home),
+    path('home', views.home,name="home"),
     path('', include('farmer_management.urls')),
     path('', include('admin_farmer.urls')),
     url(r'^api/analogy_climate$', views.analogy),
