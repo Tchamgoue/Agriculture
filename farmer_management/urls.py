@@ -16,5 +16,6 @@ urlpatterns = [
     url('^farmer_farms$', views.farmer_farms, name='Farmer farms'),
     url('^farmer_requests$', views.farmer_requests, name='Farmer requests'),
     url('^crops_registration$', views.crops_registration_view, name="crops_registration"),
-    url('^farm_location_registration$', views.farm_location_registration_view, name="farm_registration")
+    url('^farm_location_registration$', views.farm_location_registration_view, name="farm_registration"),
+    url("^agro-similarity$",views.agro_similarity_view,name="agroviews")   
 ]

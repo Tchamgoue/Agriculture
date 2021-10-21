@@ -379,3 +379,11 @@ def farm_location_registration_view(request):
             })
     else:
         return redirect('home')
+
+@authenticate
+def agro_similarity_view(request):
+    return render(request,"farmer_management/agro_similarity.html",{
+        "uid":request.session.get("uid",None),
+        "username":request.session.get("username",None)
+    })
+    
