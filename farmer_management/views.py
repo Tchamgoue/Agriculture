@@ -1,7 +1,10 @@
 import odoorpc
 from django import forms
+from django.http import JsonResponse
 from django.http.request import HttpRequest
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 # Create your views here.
 
@@ -402,4 +405,37 @@ def agro_similarity_view(request):
         "username":request.session.get("username",None),
         "title":"Similarity-JLK"
     })
+
+
+@csrf_exempt
+@authenticate
+def perfom_demo(request):
+    with open("demo_data/data2.json") as f:
+        #print("Bonjour")
+        data=json.loads(f.read())
+        #data=data["point"]
+    #data={"g":"bonjour"}
+    i_min=0
+    i_max=0
+    i=0
+    data2=data["point"]
+    for elt in data["point"]:
+        data["point"][i]["indice"]=float(elt["indice"])
+        if elt["indice"]<data["point"][i_min]["indice"]:
+            i_min=i
+        if elt["indice"]>data["point"][i_max]["indice"]:
+            i_max=i
+        i+=1
+    min_val=data["point"][i_min]["indice"]
+    max_val=data["point"][i_max]["indice"]
+    interval=max_val-min_val
+    to_add=interval/5
+    list_intervals=[]
+    begin=min_val
+    while begin<max_val:
+        list_intervals.append(begin)
+        begin+=to_add
     
+    print(list_intervals)
+    data["intervals"]=list_intervals
+    return JsonResponse(data) 
