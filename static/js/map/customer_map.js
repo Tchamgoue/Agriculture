@@ -8,7 +8,7 @@ function initCustomerMap(){
 	customerMap=L.map("customer_map",{
 	}).setView([3.811969898599434,11.53788859277347],8);
 	 L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-         attribution: 'Carte de geolocation de vos patients',
+         attribution: 'Carte de similarite agro ecologique',
          minZoom: 1,
          maxZoom: 20
      }).addTo(customerMap);
