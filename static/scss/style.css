@@ -1098,7 +1098,7 @@ body {
 
 
 .form-header-group {
-    background-image: url(/sekoo_web/static/img/apply_now_bannerHeader.jpg);
+    background-image: url(/sekoo_web/{% static "img/apply_now_bannerHeader.jpg);
 }
 .header-text {
     padding: 10px;

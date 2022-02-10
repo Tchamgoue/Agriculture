@@ -1,0 +1,698 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-10 14:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: farmer_management/templates/base.html:54
+#: farmer_management/templates/base.html:151
+msgid "Home"
+msgstr "Apache"
+
+#: farmer_management/templates/base.html:57
+#: farmer_management/templates/farmer_management/about.html:17
+msgid "About"
+msgstr "A propos"
+
+#: farmer_management/templates/base.html:61
+msgid "Contact Us"
+msgstr "Contactez nous"
+
+#: farmer_management/templates/base.html:71
+msgid "My Account"
+msgstr "Mon compte"
+
+#: farmer_management/templates/base.html:72
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: farmer_management/templates/base.html:74
+msgid "Logout"
+msgstr "Deconnexion"
+
+#: farmer_management/templates/base.html:79
+#: farmer_management/templates/base.html:153
+msgid "Register now"
+msgstr "S'enregistrer"
+
+#: farmer_management/templates/base.html:82
+#: farmer_management/templates/farmer_management/login.html:55
+msgid "Login"
+msgstr "Connexion"
+
+#: farmer_management/templates/base.html:104
+msgid "Welcome the innovative agriculture platform"
+msgstr "Bienvenue à la plateforme d'agriculture innovante"
+
+#: farmer_management/templates/base.html:105
+msgid ""
+"Integrated Pest Management, A great solution to revolutionize agriculture in "
+"sub-Saharan"
+msgstr ""
+"La lutte intégrée contre les ravageurs, une solution formidable pour "
+"révolutionner l'agriculture en Afrique subsaharienne"
+
+#: farmer_management/templates/base.html:112
+msgid "Our Goal"
+msgstr "Notre objectif"
+
+#: farmer_management/templates/base.html:113
+msgid "We accompany you for better harvests"
+msgstr "Nous vous accompagnons pour de meilleures récolte"
+
+#: farmer_management/templates/base.html:119
+msgid "We provide"
+msgstr "Nous fournissons"
+
+#: farmer_management/templates/base.html:120
+msgid "Solutions adapted for every kind of cultures, climates and soils"
+msgstr ""
+"Des solutions adaptées à tous les types de cultures, de climats et de sols"
+
+#: farmer_management/templates/base.html:148
+msgid "Quick links"
+msgstr ""
+
+#: farmer_management/templates/base.html:152
+#: farmer_management/templates/index.html:9
+msgid "Services"
+msgstr "Liens rapides"
+
+#: farmer_management/templates/base.html:154
+msgid "Submit a crop request"
+msgstr "Soumettre une demande de culture"
+
+#: farmer_management/templates/base.html:155
+msgid "News"
+msgstr "Actualités"
+
+#: farmer_management/templates/base.html:161
+msgid "Find us"
+msgstr "Trouvez-nous"
+
+#: farmer_management/templates/base.html:164
+#: farmer_management/templates/farmer_management/contact.html:124
+msgid "United States"
+msgstr "États-Unis"
+
+#: farmer_management/templates/base.html:169
+msgid "Changer de langue"
+msgstr "Change language"
+
+#: farmer_management/templates/base.html:194
+msgid "All Rights Reserved."
+msgstr "Tous droits réservés."
+
+#: farmer_management/templates/farmer_management/about.html:18
+msgid ""
+"As agriculture is the flagship activity of the continent, this ambitious "
+"project, targeting mainly sub-Saharan Africa, has as main objectives:"
+msgstr ""
+"L'agriculture étant l'activité phare du continent, ce projet ambitieux, qui "
+"vise principalement l'Afrique subsaharienne, a pour principaux objectifs :"
+
+#: farmer_management/templates/farmer_management/about.html:20
+msgid ""
+"To build an all-inclusive portal for supporting the IPM technologies "
+"deployment in Africa;"
+msgstr ""
+"Construire un portail complet pour soutenir le déploiement des technologies "
+"IPM en Afrique ;"
+
+#: farmer_management/templates/farmer_management/about.html:21
+msgid "To develop a portal for IPM technology transfer and outreach;"
+msgstr ""
+"Développer un portail pour le transfert et la diffusion de la technologie "
+"IPM ;"
+
+#: farmer_management/templates/farmer_management/about.html:22
+msgid ""
+"To Establish an electronic technology gateway, which is a one-stop-shop to "
+"store, browse,search,query, and visualize IPM technologies;"
+msgstr ""
+"Créer une passerelle technologique électronique, qui soit un guichet unique "
+"pour stocker, parcourir, rechercher, interroger et visualiser les "
+"technologies IPM ;"
+
+#: farmer_management/templates/farmer_management/about.html:24
+msgid "To link farmers to inputs and outputs – products and services;"
+msgstr ""
+"Relier les agriculteurs aux intrants et aux extrants - produits et services ;"
+
+#: farmer_management/templates/farmer_management/about.html:25
+msgid ""
+"To provide a stand-alone gateway with all African countries boundaries and "
+"queries for identifying similar agroecology within the continent;"
+msgstr ""
+"Fournir une passerelle autonome avec les frontières de tous les pays "
+"africains et des requêtes pour identifier les agroécologies similaires sur "
+"le continent ;"
+
+#: farmer_management/templates/farmer_management/agro_similarity.html:96
+#, fuzzy
+#| msgid "Your account is not yet active"
+msgid "Your account is not yet active. Please check your emails."
+msgstr "Votre compte n'est pas encore activé"
+
+#: farmer_management/templates/farmer_management/agro_similarity.html:102
+#: farmer_management/templates/farmer_management/user_account.html:51
+msgid "Agro similarity"
+msgstr "Similarité agro-ecologique"
+
+#: farmer_management/templates/farmer_management/agro_similarity.html:106
+msgid "Choose point on the map"
+msgstr "Choisir un point sur la carte"
+
+#: farmer_management/templates/farmer_management/agro_similarity.html:113
+msgid "Longitude"
+msgstr "Longitude"
+
+#: farmer_management/templates/farmer_management/agro_similarity.html:117
+msgid "Latitude"
+msgstr "Latitude"
+
+#: farmer_management/templates/farmer_management/agro_similarity.html:122
+msgid "Similarity computation"
+msgstr "Calculer la similarité"
+
+#: farmer_management/templates/farmer_management/all_farmers.html:17
+msgid "Farmers"
+msgstr "Agriculteurs"
+
+#: farmer_management/templates/farmer_management/all_farmers.html:26
+#: farmer_management/templates/farmer_management/farmer_farms.html:26
+msgid "View and search farmers"
+msgstr "Afficher et rechercher des agriculteurs"
+
+#: farmer_management/templates/farmer_management/all_farmers.html:27
+msgid "Register"
+msgstr "Enregistrer"
+
+#: farmer_management/templates/farmer_management/all_farmers.html:35
+#: farmer_management/templates/farmer_management/all_farmers.html:53
+#: farmer_management/templates/farmer_management/crops_registration.html:69
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:39
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:61
+#: farmer_management/templates/farmer_management/farmer_crops.html:37
+#: farmer_management/templates/farmer_management/farmer_crops.html:59
+#: farmer_management/templates/farmer_management/farmer_farms.html:35
+#: farmer_management/templates/farmer_management/farmer_farms.html:60
+#: farmer_management/templates/farmer_management/new_crop_request.html:61
+#: farmer_management/templates/farmer_management/register_farm.html:69
+msgid "Name"
+msgstr "Nom"
+
+#: farmer_management/templates/farmer_management/all_farmers.html:36
+#: farmer_management/templates/farmer_management/all_farmers.html:54
+#: farmer_management/templates/farmer_management/farmer_registration.html:99
+#: farmer_management/templates/farmer_management/login.html:35
+msgid "Email"
+msgstr "Email"
+
+#: farmer_management/templates/farmer_management/all_farmers.html:37
+#: farmer_management/templates/farmer_management/all_farmers.html:55
+#: farmer_management/templates/farmer_management/farmer_registration.html:89
+msgid "Phone"
+msgstr "Téléphone"
+
+#: farmer_management/templates/farmer_management/contact.html:40
+msgid "Contact us"
+msgstr "Nous contacter"
+
+#: farmer_management/templates/farmer_management/contact.html:82
+msgid "Send us a Message"
+msgstr "Envoyez-nous un message"
+
+#: farmer_management/templates/farmer_management/contact.html:86
+msgid "Full Name"
+msgstr "Nom et prénom"
+
+#: farmer_management/templates/farmer_management/contact.html:94
+msgid "Phone Number"
+msgstr "N° de téléphone"
+
+#: farmer_management/templates/farmer_management/contact.html:96
+msgid "Please enter your phone number"
+msgstr "Veuillez entrer votre numéro de téléphone"
+
+#: farmer_management/templates/farmer_management/contact.html:101
+msgid "Email Address"
+msgstr "Adresse e-mail"
+
+#: farmer_management/templates/farmer_management/contact.html:103
+msgid "Please enter your email address"
+msgstr "Veuillez entrer votre adresse e-mail"
+
+#: farmer_management/templates/farmer_management/contact.html:108
+msgid "Message"
+msgstr "Message"
+
+#: farmer_management/templates/farmer_management/contact.html:110
+msgid "Please enter your message"
+msgstr "Veuillez entrer votre message"
+
+#: farmer_management/templates/farmer_management/contact.html:116
+msgid "Send Message"
+msgstr "Envoyez le message"
+
+#: farmer_management/templates/farmer_management/contact.html:121
+msgid "Contact Details"
+msgstr "Coordonnées"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:7
+#: farmer_management/templates/farmer_management/user_account.html:21
+msgid "My crops"
+msgstr "Mes cultures"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:13
+#: farmer_management/templates/farmer_management/user_account.html:27
+msgid "My Farms"
+msgstr "Mes fermes"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:19
+#: farmer_management/templates/farmer_management/user_account.html:33
+msgid "My crop requests"
+msgstr "Mes demandes de cultures"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:25
+#: farmer_management/templates/farmer_management/user_account.html:39
+msgid "Search farmers"
+msgstr "Rechercher des agriculteurs"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:31
+#: farmer_management/templates/farmer_management/user_account.html:45
+msgid "Chain values"
+msgstr "Chaîne de valeurs"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:36
+#: farmer_management/templates/farmer_management/user_account.html:56
+msgid "Information"
+msgstr "Information"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:37
+msgid "person"
+msgstr "personne"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:38
+msgid "email"
+msgstr "email"
+
+#: farmer_management/templates/farmer_management/crop_domain/cd_home.html:39
+msgid "phone"
+msgstr "téléphone"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:42
+#: farmer_management/templates/farmer_management/register_farm.html:42
+msgid "Add Crop"
+msgstr "Ajouter une culture"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:57
+#: farmer_management/templates/farmer_management/register_farm.html:57
+msgid "Register your crop"
+msgstr "Enregistrez votre culture"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:65
+#: farmer_management/templates/farmer_management/register_farm.html:65
+msgid "Image"
+msgstr "Image"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:73
+#: farmer_management/templates/farmer_management/farmer_crops.html:38
+#: farmer_management/templates/farmer_management/farmer_crops.html:60
+#: farmer_management/templates/farmer_management/register_farm.html:73
+msgid "Crop period start"
+msgstr "Début de la période de culture"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:77
+#: farmer_management/templates/farmer_management/farmer_crops.html:39
+#: farmer_management/templates/farmer_management/farmer_crops.html:61
+#: farmer_management/templates/farmer_management/register_farm.html:77
+msgid "Crop period end"
+msgstr "Fin de la période de culture"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:81
+msgid "Select technologies"
+msgstr "Sélectionner les technologies"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:83
+#: farmer_management/templates/farmer_management/crops_registration.html:98
+msgid "Volvo"
+msgstr "Volvo"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:84
+#: farmer_management/templates/farmer_management/crops_registration.html:99
+msgid "Saab"
+msgstr "Saab"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:85
+#: farmer_management/templates/farmer_management/crops_registration.html:100
+msgid "Opel"
+msgstr "Opel"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:86
+#: farmer_management/templates/farmer_management/crops_registration.html:101
+msgid "Audi"
+msgstr "Audi"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:89
+#: farmer_management/templates/farmer_management/crops_registration.html:118
+#: farmer_management/templates/farmer_management/register_farm.html:104
+#: farmer_management/templates/farmer_management/register_farm.html:118
+msgid "add new technology"
+msgstr "ajouter une nouvelle technologie"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:89
+#: farmer_management/templates/farmer_management/crops_registration.html:104
+#: farmer_management/templates/farmer_management/crops_registration.html:118
+#: farmer_management/templates/farmer_management/register_farm.html:89
+#: farmer_management/templates/farmer_management/register_farm.html:104
+#: farmer_management/templates/farmer_management/register_farm.html:118
+msgid "add"
+msgstr "ajouter"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:95
+#: farmer_management/templates/farmer_management/register_farm.html:95
+msgid "Select Warehouse"
+msgstr "Choisir un entrepôt"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:109
+#: farmer_management/templates/farmer_management/register_farm.html:109
+msgid "Select Stock location"
+msgstr "Sélectionnez l'emplacement du stock"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:123
+#: farmer_management/templates/farmer_management/new_crop_request.html:73
+#: farmer_management/templates/farmer_management/register_farm.html:123
+msgid "Description"
+msgstr "Description"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:133
+#: farmer_management/templates/farmer_management/new_crop_request.html:78
+#: farmer_management/templates/farmer_management/register_farm.html:133
+msgid "Cancel"
+msgstr "Annuler"
+
+#: farmer_management/templates/farmer_management/crops_registration.html:136
+#: farmer_management/templates/farmer_management/farmer_registration.html:110
+#: farmer_management/templates/farmer_management/new_crop_request.html:79
+#: farmer_management/templates/farmer_management/register_farm.html:136
+msgid "Submit"
+msgstr "Soumettre"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:18
+msgid "My Requests"
+msgstr "Mes demandes"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:29
+msgid "View and search crop requests"
+msgstr "Consulter et rechercher des demandes de cultures"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:30
+msgid "Submit request"
+msgstr "Soumettre une demande"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:37
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:59
+msgid "Crop Request"
+msgstr "Demande de culture"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:38
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:60
+msgid "State"
+msgstr "Status"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:40
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:62
+msgid "Crop"
+msgstr "Culture"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:41
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:63
+#: farmer_management/templates/farmer_management/new_crop_request.html:65
+msgid "Start date"
+msgstr "Date de début"
+
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:42
+#: farmer_management/templates/farmer_management/farmer_crop_requests.html:64
+#: farmer_management/templates/farmer_management/new_crop_request.html:69
+msgid "End date"
+msgstr "Date de fin"
+
+#: farmer_management/templates/farmer_management/farmer_crops.html:18
+#: farmer_management/templates/farmer_management/farmer_farms.html:36
+#: farmer_management/templates/farmer_management/farmer_farms.html:61
+msgid "Crops"
+msgstr "Cultures"
+
+#: farmer_management/templates/farmer_management/farmer_crops.html:28
+msgid "View and search crops"
+msgstr "Visualiser et rechercher des cultures"
+
+#: farmer_management/templates/farmer_management/farmer_crops.html:29
+msgid "Add crop"
+msgstr "Ajouter une culture"
+
+#: farmer_management/templates/farmer_management/farmer_crops.html:40
+#: farmer_management/templates/farmer_management/farmer_crops.html:62
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#: farmer_management/templates/farmer_management/farmer_crops.html:41
+#: farmer_management/templates/farmer_management/farmer_crops.html:63
+msgid "Stock location"
+msgstr "Emplacement du stock"
+
+#: farmer_management/templates/farmer_management/farmer_farms.html:16
+msgid "Farms"
+msgstr "Agriculteurs"
+
+#: farmer_management/templates/farmer_management/farmer_farms.html:27
+msgid "Add Farm"
+msgstr "Ajouter un agriculteur"
+
+#: farmer_management/templates/farmer_management/farmer_farms.html:37
+#: farmer_management/templates/farmer_management/farmer_farms.html:62
+msgid "View on Map"
+msgstr "Voir sur la carte"
+
+#: farmer_management/templates/farmer_management/farmer_farms.html:50
+msgid "visibility"
+msgstr "visibilité"
+
+#: farmer_management/templates/farmer_management/farmer_registration.html:42
+#: farmer_management/templates/farmer_management/farmer_registration.html:59
+msgid "Farmer Registration"
+msgstr "Enregistrement des agriculteurs"
+
+#: farmer_management/templates/farmer_management/farmer_registration.html:63
+msgid "Your Name"
+msgstr "Votre nom"
+
+#: farmer_management/templates/farmer_management/farmer_registration.html:71
+msgid "Name In Local Language"
+msgstr "Nom en langue locale"
+
+#: farmer_management/templates/farmer_management/farmer_registration.html:81
+msgid "Mobile"
+msgstr "Mobile"
+
+#: farmer_management/templates/farmer_management/farmer_registration.html:122
+msgid "Great companies are built with great people"
+msgstr "Les grandes entreprises se construisent avec des personnes de qualité"
+
+#: farmer_management/templates/farmer_management/farmer_registration_success.html:13
+msgid "We have received your Farmer request"
+msgstr "Nous avons reçu votre demande pour être agriculteur"
+
+#: farmer_management/templates/farmer_management/farmer_registration_success.html:18
+msgid "Your Farmer request is"
+msgstr "Votre requête pour être agriculteur est"
+
+#: farmer_management/templates/farmer_management/login.html:21
+msgid "Invalid login credentials"
+msgstr "Identifiants de connexion non valides"
+
+#: farmer_management/templates/farmer_management/login.html:31
+msgid "Sign in"
+msgstr "Connexion"
+
+#: farmer_management/templates/farmer_management/login.html:37
+msgid "Enter your email"
+msgstr "Entrez votre email"
+
+#: farmer_management/templates/farmer_management/login.html:43
+msgid "Password"
+msgstr "Mot de passe"
+
+#: farmer_management/templates/farmer_management/login.html:45
+msgid "Enter your password"
+msgstr "Entrez votre mot de passe"
+
+#: farmer_management/templates/farmer_management/login.html:59
+msgid "Don't have an account?"
+msgstr "N'avez vous pas de compte?"
+
+#: farmer_management/templates/farmer_management/login.html:60
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"
+
+#: farmer_management/templates/farmer_management/new_crop_request.html:31
+msgid "Create a Crop request"
+msgstr "Créer une demande de culture"
+
+#: farmer_management/templates/farmer_management/new_crop_request.html:51
+msgid "Select crop"
+msgstr "Selectionnez une culture"
+
+#: farmer_management/templates/farmer_management/register_farm.html:81
+msgid "Select technonologies"
+msgstr "Sélectionner les technonologies"
+
+#: farmer_management/templates/farmer_management/register_farm.html:125
+msgid "type your description here"
+msgstr "tapez votre description ici"
+
+#: farmer_management/templates/farmer_management/user_account.html:11
+msgid "Your account is not yet active"
+msgstr "Votre compte n'est pas encore activé"
+
+#: farmer_management/templates/farmer_management/user_account.html:11
+msgid "Please check your emails."
+msgstr "Veuillez vérifier vos e-mails."
+
+#: farmer_management/templates/farmer_management/user_account.html:17
+msgid "My Documents"
+msgstr "Mes documents"
+
+#: farmer_management/templates/index.html:9
+msgid "Main features"
+msgstr "Fonctions principales"
+
+#: farmer_management/templates/index.html:14
+msgid "Agro-ecologic matching"
+msgstr "Correspondance agro-écologique"
+
+#: farmer_management/templates/index.html:19
+msgid ""
+"We identify around the continent and the whole Word places with the same "
+"climatic and soils’ structure characteristics where IPM technologies "
+"succeeded to suggest better solutions to farmer on what the can sow."
+msgstr ""
+"Nous identifions sur tout le continent et dans le monde entier les endroits "
+"présentant les mêmes caractéristiques climatiques et de structure des sols "
+"où les technologies de lutte intégrée ont réussi à proposer de meilleures "
+"solutions aux agriculteurs sur ce qu'ils peuvent semer."
+
+#: farmer_management/templates/index.html:22
+#: farmer_management/templates/index.html:36
+#: farmer_management/templates/index.html:50
+msgid "Learn More"
+msgstr "En savoir plus"
+
+#: farmer_management/templates/index.html:28
+msgid "Pest fighting technologies"
+msgstr "Technologies de lutte contre les parasites"
+
+#: farmer_management/templates/index.html:33
+msgid ""
+"Insects such as locusts can become a real headache in agriculture, our "
+"solutions are adapted according to the environment, the crops and the "
+"targeted pests."
+msgstr ""
+"Les insectes tels que les criquets peuvent devenir un véritable casse-tête "
+"en agriculture, nos solutions sont adaptées en fonction de l'environnement, "
+"des cultures et des ravageurs ciblés."
+
+#: farmer_management/templates/index.html:42
+msgid "Yields Improvement"
+msgstr "Amélioration du rendement"
+
+#: farmer_management/templates/index.html:47
+msgid ""
+"Our digital solutions have been developed to improve your yields at the end "
+"of the season."
+msgstr ""
+"Nos solutions numériques ont été développées pour améliorer vos rendements "
+"en fin de saison."
+
+#: farmer_management/templates/index.html:61
+msgid "Welcome to"
+msgstr "Bienvenue sur"
+
+#: farmer_management/templates/index.html:62
+msgid ""
+"Following the funding of several research projects of multiple post-doctoral "
+"students in Africa by the Volkswagen Foundation, the IPM and agroecology "
+"project has also been carried out so far. As agriculture is the flagship "
+"activity of the continent, this ambitious project, targeting mainly sub-"
+"Saharan Africa, has as main objectives:"
+msgstr ""
+"Suite au financement de plusieurs projets de recherche de plusieurs post-"
+"doctorants en Afrique par la Fondation Volkswagen, le projet IPM et "
+"agroécologie a également été réalisé jusqu'à présent. L'agriculture étant "
+"l'activité phare du continent, ce projet ambitieux, ciblant principalement "
+"l'Afrique subsaharienne, a pour principaux objectifs :"
+
+#: farmer_management/templates/index.html:66
+msgid ""
+"To build an all-inclusive portal for supporting the IPM technologies "
+"deployment in Africa."
+msgstr ""
+"Construire un portail complet pour soutenir le déploiement des technologies "
+"IPM en Afrique."
+
+#: farmer_management/templates/index.html:67
+msgid "To develop a portal for IPM technology transfer and outreach."
+msgstr ""
+"Développer un portail pour le transfert et la diffusion de la technologie "
+"IPM."
+
+#: farmer_management/templates/index.html:68
+msgid ""
+"To Establish an electronic technology gateway, which is a one-stop-shop to "
+"store, browse, search, query, and visualize IPM technologies"
+msgstr ""
+"Créer une passerelle technologique électronique, qui soit un guichet unique "
+"pour stocker, parcourir, rechercher, interroger et visualiser les "
+"technologies IPM."
+
+#: farmer_management/templates/index.html:70
+msgid "To link farmers to inputs and outputs – products and services"
+msgstr ""
+"Relier les agriculteurs aux intrants et aux extrants - produits et services"
+
+#: farmer_management/templates/index.html:71
+msgid ""
+"To provide a stand-alone gateway with all African countries boundaries and "
+"queries for identifying similar agroecology within the continent"
+msgstr ""
+"Fournir une passerelle autonome avec les frontières de tous les pays "
+"africains et des requêtes pour identifier les agroécologies similaires sur "
+"le continent."
+
+#: farmer_management/templates/index.html:89
+msgid ""
+"Get a free account and modernise your agriculture, with the most adapted "
+"technologies and latest information concerning any type of crop or pest"
+msgstr ""
+"Obtenez un compte gratuit et modernisez votre agriculture, avec les "
+"technologies les plus adaptées et les dernières informations concernant tout "
+"type de culture ou d'organisme nuisible."
+
+#: farmer_management/templates/index.html:92
+msgid "Register Now"
+msgstr "S'inscrire maintenant"

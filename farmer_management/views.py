@@ -179,7 +179,7 @@ def login_view(request):
                 request.session['uid'] = odoo._env.uid
                 return redirect('user_account')
             except Exception as e:
-                return render(request, 'farmer_management/login.html', {'error': 'Registration Failed',"title":"Login-JLK"})
+                return render(request, 'farmer_management/login.html', {'error': 'Registration Failed'+str(e) ,"title":"Login-JLK"})
         else:
             return render(request, 'farmer_management/login.html', {})
 

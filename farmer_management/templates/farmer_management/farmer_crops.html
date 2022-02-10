@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-
+{% load i18n %}
 {% block banner %}
 
 {% endblock %}
@@ -15,7 +15,7 @@
             </span>
         </a>
         <h3>
-            Crops
+            {% trans "Crops" %}
         </h3>
     </div>
     <div>
@@ -25,8 +25,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">View and search crops</h3>
-                                <a href="crops_registration" class="btn btn-outline-success">Add crop</a>
+                                <h3 class="card-title">{% trans "View and search crops" %}</h3>
+                                <a href="crops_registration" class="btn btn-outline-success">{% trans "Add crop" %}</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -34,11 +34,11 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Crop period start</th>
-                                        <th scope="col">Crop period end</th>
-                                        <th scope="col">Warehouse</th>
-                                        <th scope="col">Stock location</th>
+                                        <th scope="col">{% trans "Name" %}</th>
+                                        <th scope="col">{% trans "Crop period start" %}</th>
+                                        <th scope="col">{% trans "Crop period end" %}</th>
+                                        <th scope="col">{% trans "Warehouse" %}</th>
+                                        <th scope="col">{% trans "Stock location" %}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -56,11 +56,11 @@
                                     <tfoot>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Crop period start</th>
-                                        <th scope="col">Crop period end</th>
-                                        <th scope="col">Warehouse</th>
-                                        <th scope="col">Stock location</th>
+                                        <th scope="col">{% trans "Name" %}</th>
+                                        <th scope="col">{% trans "Crop period start" %}</th>
+                                        <th scope="col">{% trans "Crop period end" %}</th>
+                                        <th scope="col">{% trans "Warehouse" %}</th>
+                                        <th scope="col">{% trans "Stock location" %}</th>
                                         <!--                                        <th scope="col">Description</th>-->
                                     </tr>
                                     </tfoot>

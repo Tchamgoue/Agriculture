@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load i18n %}
 
 {% block banner %}
 {% endblock %}
@@ -14,7 +15,7 @@
             </span>
         </a>
         <h3>
-            My Requests
+            {% trans "My Requests" %}
         </h3>
     </div>
     <!--        <a href="new_crop_request" class="btn btn-outline-success">Submit request</a>-->
@@ -25,20 +26,20 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">View and search crop requests</h3>
-                                <a href="new_crop_request" class="btn btn-outline-success">Submit request</a>
+                                <h3 class="card-title">{% trans "View and search crop requests" %}</h3>
+                                <a href="new_crop_request" class="btn btn-outline-success">{% trans "Submit request" %}</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Crop Request#</th>
-                                        <th scope="col">State</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Crop</th>
-                                        <th scope="col">Start date</th>
-                                        <th scope="col">End date</th>
+                                        <th scope="col">{% trans "Crop Request" %}#</th>
+                                        <th scope="col">{% trans "State" %}</th>
+                                        <th scope="col">{% trans "Name" %}</th>
+                                        <th scope="col">{% trans "Crop" %}</th>
+                                        <th scope="col">{% trans "Start date" %}</th>
+                                        <th scope="col">{% trans "End date" %}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -55,12 +56,12 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th scope="col">Crop Request#</th>
-                                        <th scope="col">State</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Crop</th>
-                                        <th scope="col">Start date</th>
-                                        <th scope="col">End date</th>
+                                        <th scope="col">{% trans "Crop Request" %}#</th>
+                                        <th scope="col">{% trans "State" %}</th>
+                                        <th scope="col">{% trans "Name" %}</th>
+                                        <th scope="col">{% trans "Crop" %}</th>
+                                        <th scope="col">{% trans "Start date" %}</th>
+                                        <th scope="col">{% trans "End date" %}</th>
                                     </tr>
                                     </tfoot>
                                 </table>

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +41,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
     <div class="container">
         <a class="navbar-brand" href="home">
-            <img src="static/images/kilimo.png" alt="logo" class="custom-logo"/>
+            <img src="{% static "images/kilimo.png" %}" alt="logo" class="custom-logo"/>
         </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -50,15 +51,39 @@
         <div class="collapse navbar-collapse activate-current-url" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="home">Home</a>
+                    <a class="nav-link" href="home">{% trans "Home" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about">About</a>
+                    <a class="nav-link" href="about">{% trans "About" %}</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="contact">Contact Us</a>
+                    <a class="nav-link" href="contact">{% trans "Contact Us" %}</a>
                 </li>
+                
+                    <div class="ml-3 btn-group">
+                        <button type="button" class="btn  dropdown-toggle" style="background-color: transparent; padding-top: 6px;" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="material-icons mr-2">language</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                           
+                                {% for language in languages %}
+                                    {% if language.code == 'en' or language.code == "fr" %}
+                              
+                                    <a class="dropdown-item" href="/{{ language.code }}/{{request.get_full_path|slice:"4:"}}">
+                                    {{ language.name_local }}
+                                    </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>  
+                        </div>
+                    </div>
+                    
+                
                 {% if uid %}
                 <div class="ml-3 btn-group">
                     <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown"
@@ -66,18 +91,18 @@
                         {{username}}
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="user_account">My Account</a>
-                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <a class="dropdown-item" href="user_account">{% trans "My Account" %}</a>
+                        <a class="dropdown-item" href="#">{% trans "Dashboard" %}</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="logout">Logout</a>
+                        <a class="dropdown-item" href="logout">{% trans "Logout" %}</a>
                     </div>
                 </div>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="farmer_registration">Register now</a>
+                    <a class="nav-link" href="farmer_registration">{% trans "Register now" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
+                    <a class="nav-link" href="login">{% trans "Login" %}</a>
                 </li>
                 {% endif %}
             </ul>
@@ -97,25 +122,25 @@
 
         <div class="carousel-inner" role="listbox">
             <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active" style="background-image: url('static/images/home1.jpg')">
+            <div class="carousel-item active" style="background-image: url('{% static "images/home1.jpg" %}')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Welcome the innovative agriculture platform</h3>
-                    <p>Integrated Pest Management, A great solution to revolutionize agriculture in sub-Saharan
+                    <h3>{% trans "Welcome the innovative agriculture platform" %}</h3>
+                    <p>{% trans "Integrated Pest Management, A great solution to revolutionize agriculture in sub-Saharan" %}
                         Africa.</p>
                 </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('static/images/home2.jpg')">
+            <div class="carousel-item" style="background-image: url('{% static "images/home2.jpg"%}')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Our Goal</h3>
-                    <p>We accompany you for better harvests</p>
+                    <h3>{% trans "Our Goal" %}</h3>
+                    <p>{% trans "We accompany you for better harvests" %}</p>
                 </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('static/images/home3.jpg')">
+            <div class="carousel-item" style="background-image: url('{% static "images/home3.jpg" %}')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>We provide</h3>
-                    <p>Solutions adapted for every kind of cultures, climates and soils.</p>
+                    <h3>{% trans "We provide" %}</h3>
+                    <p>{% trans "Solutions adapted for every kind of cultures, climates and soils"%}.</p>
                 </div>
             </div>
         </div>
@@ -142,34 +167,54 @@
 <footer class="footer">
     <div class="container bottom_border">
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <h5 class="headin5_amrc col_white_amrc pt2">{% trans "Quick links" %}</h5>
                 <!--headin5_amrc-->
                 <ul class="footer_ul_amrc">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Register now</a></li>
-                    <li><a href="#">Submit a crop request</a></li>
-                    <li><a href="#">News</a></li>
+                    <li><a href="#">{% trans "Home" %}</a></li>
+                    <li><a href="#">{% trans "Services" %}</a></li>
+                    <li><a href="#">{% trans "Register now" %}</a></li>
+                    <li><a href="#">{% trans "Submit a crop request" %}</a></li>
+                    <li><a href="#">{% trans "News" %}</a></li>
                     <!--                    <li><a href="#">Get In Touch</a></li>-->
                 </ul>
                 <!--footer_ul_amrc ends here-->
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col">
-                <h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
+            <div class="col-lg-3 col-md-4 col-sm-6 col">
+                <h5 class="headin5_amrc col_white_amrc pt2">{% trans "Find us" %}</h5>
                 <!--headin5_amrc-->
                 <p class="mb10">47 Ernest Street, New York</p>
-                <p><i class="fa fa-location-arrow"></i> United States </p>
+                <p><i class="fa fa-location-arrow"></i> {% trans "United States" %} </p>
                 <p><i class="fa fa-phone"></i> +1-646-431-5376 </p>
                 <p><i class="fa fa fa-envelope"></i> info@africasystems.com </p>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <h5 class="headin5_amrc col_white_amrc pt2">{% trans "Changer de langue" %}</h5>
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+
+
+                <ul class="footer_ul_amrc">
+                    {% for language in languages %}
+                        {% if language.code == 'en' or language.code == "fr" %}
+                    <li>
+                        <a href="/{{ language.code }}/{{request.get_full_path|slice:"4:"}}"
+                        {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                        {{ language.name_local }}
+                        </a>
+                    </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>  
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col">
                 <div class="footer-logo">
                     <a href="#"><img src="{% static 'images/kilimoWhite.png' %}" alt="" class="custom-logo"/></a>
                 </div>
                 <!--foote_bottom_ul_amrc ends here-->
                 <p class="copyright text-center">
-                    All Rights Reserved. &copy; 2021 <a href="https://africasystems.com/">AfricaSystems</a>
+                    {% trans "All Rights Reserved." %} &copy; 2021 <a href="https://africasystems.com/">AfricaSystems</a>
                 </p>
                 <ul class="social_footer_ul">
                     <li><a href="#"><i class="fab fa-facebook"></i></a></li>
@@ -178,78 +223,7 @@
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
-            <!--               <div class="col-lg-3 col-md-6 col-sm-6 col">-->
-            <!--					<h5 class="headin5_amrc col_white_amrc pt2">Follow us</h5>-->
-            <!--					&lt;!&ndash;headin5_amrc ends here&ndash;&gt;-->
-            <!--					<ul class="footer_ul2_amrc">-->
-            <!--						<li>-->
-            <!--							<a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a>-->
-            <!--							<p>Lorem Ipsum is simply dummy printing...<a href="#">https://www.lipsum.com/</a></p>-->
-            <!--						</li>-->
-            <!--						<li>-->
-            <!--							<a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a>-->
-            <!--							<p>Lorem Ipsum is simply dummy printing...<a href="#">https://www.lipsum.com/</a></p>-->
-            <!--						</li>-->
-            <!--						<li>-->
-            <!--							<a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a>-->
-            <!--							<p>Lorem Ipsum is simply dummy printing...<a href="#">https://www.lipsum.com/</a></p>-->
-            <!--						</li>-->
-            <!--					</ul>-->
-            <!--					&lt;!&ndash;footer_ul2_amrc ends here&ndash;&gt;-->
-            <!--				</div>-->
-
-            <!--				<div class="col-lg-4 col-md-6 col-sm-6 ">-->
-            <!--					<h5 class="headin5_amrc col_white_amrc pt2">Recent posts</h5>-->
-            <!--					&lt;!&ndash;headin5_amrc&ndash;&gt;-->
-            <!--					<ul class="footer_ul_amrc">-->
-            <!--						<li class="media">-->
-            <!--							<div class="media-left">-->
-            <!--								<img class="img-fluid" src="static/images/post-img-01.jpg" alt="" />-->
-            <!--							</div>-->
-            <!--							<div class="media-body">-->
-            <!--								<p>How to find best dog food?</p>-->
-            <!--								<span>22 Sep 2018</span>-->
-            <!--							</div>-->
-            <!--						</li>-->
-            <!--						<li class="media">-->
-            <!--							<div class="media-left">-->
-            <!--								<img class="img-fluid" src="static/images/post-img-02.jpg" alt="" />-->
-            <!--							</div>-->
-            <!--							<div class="media-body">-->
-            <!--								<p>How to find best dog food?</p>-->
-            <!--								<span>34 Sep 2018</span>-->
-            <!--							</div>-->
-            <!--						</li>-->
-            <!--						<li class="media">-->
-            <!--							<div class="media-left">-->
-            <!--								<img class="img-fluid" src="static/images/post-img-03.jpg" alt="" />-->
-            <!--							</div>-->
-            <!--							<div class="media-body">-->
-            <!--								<p>How to find best dog food?</p>-->
-            <!--								<span>30 Sep 2018</span>-->
-            <!--							</div>-->
-            <!--						</li>-->
-            <!--					</ul>-->
-            <!--					&lt;!&ndash;footer_ul_amrc ends here&ndash;&gt;-->
-            <!--				</div>-->
-            <!--			</div>-->
-        </div>
-        <!--        <div class="container">-->
-        <!--            <div class="footer-logo">-->
-        <!--                <a href="#"><img src="static/images/kilimoWhite.png" alt="" class="custom-logo"/></a>-->
-        <!--            </div>-->
-        <!--            &lt;!&ndash;foote_bottom_ul_amrc ends here&ndash;&gt;-->
-        <!--            <p class="copyright text-center">-->
-        <!--                All Rights Reserved. &copy; 2021 <a href="https://africasystems.com/">AfricaSystems</a>-->
-        <!--            </p>-->
-        <!--            <ul class="social_footer_ul">-->
-        <!--                <li><a href="#"><i class="fab fa-facebook"></i></a></li>-->
-        <!--                <li><a href="#"><i class="fab fa-twitter"></i></a></li>-->
-        <!--                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>-->
-        <!--                <li><a href="#"><i class="fab fa-instagram"></i></a></li>-->
-        <!--            </ul>-->
-        <!--            &lt;!&ndash;social_footer_ul ends here&ndash;&gt;-->
-        <!--        </div>-->
+            
     </div>
 </footer>
 
@@ -259,11 +233,7 @@
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'vendor/multiselect/multi-select-min.js' %}"></script>
 <script src="{% static 'js/myscript.js' %}"></script>
-<!-- jQuery -->
-<!--<script src="static/admin/plugins/jquery/jquery.min.js"></script>-->
-<!-- Bootstrap 4 -->
-<!--<script src="static/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-<!-- DataTables  & Plugins -->
+
 <script src="{% static 'admin/plugins/datatables/jquery.dataTables.min.js' %}"></script>
 <script src="{% static 'admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
 <script src="{% static 'admin/plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>

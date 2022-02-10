@@ -1,18 +1,17 @@
-
-
 {% extends "admin_farmer/basic.html" %}
-
+{% load static %}
+{% load i18n %}
 {% block custom_style %}
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="static/admin/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{% static "admin/plugins/fontawesome-free/css/all.min.css"  %}" />
   <!-- DataTables -->
-  <link rel="stylesheet" href="static/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="static/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="static/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="{% static "admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"  %}" />
+  <link rel="stylesheet" href="{% static "admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css"  %}" />
+  <link rel="stylesheet" href="{% static "admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css"  %}" />
   <!-- Theme style -->
-  <link rel="stylesheet" href="static/admin/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{% static "admin/dist/css/adminlte.min.css"  %}" />
   {% endblock %}
 
   {% block sidebar-menu %}
@@ -24,8 +23,8 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
-            Dashboard
-            <span class="right badge badge-warning">Soon</span>
+            {% trans "Dashboard" %}
+            <span class="right badge badge-warning">{% trans "Soon" %}</span>
           </p>
         </a>
       </li>
@@ -34,7 +33,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-edit"></i>
           <p>
-            Crop requests
+            {% trans "Crop requests" %}
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -42,13 +41,13 @@
           <li class="nav-item">
             <a href="add_crop_request" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>New crop request</p>
+              <p>{% trans "New crop request" %}</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="list_crop_requests" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>All crop requests</p>
+              <p>{% trans "All crop requests" %}</p>
             </a>
           </li>
         </ul>
@@ -59,7 +58,7 @@
         <a href="profile" class="nav-link">
           <i class="nav-icon fas fa-book"></i>
           <p>
-            Farmer informations
+            {% trans "Farmer informations" %}
             <!-- <i class="fas fa-angle-left right"></i> -->
           </p>
         </a>
@@ -68,8 +67,8 @@
         <a href="farmer_location" class="nav-link">
           <i class="nav-icon fas fa-map-marker-alt"></i>
           <p>
-            Farmer location
-            <span class="right badge badge-danger">New</span>
+            {% trans "Farmer location" %}
+            <span class="right badge badge-danger">{% trans "New" %}</span>
           </p>
         </a>
       </li>
@@ -78,7 +77,7 @@
         <a href="list_farmers" class="nav-link active">
           <i class="nav-icon fas fa-users"></i>
           <p>
-            List farmers
+            {% trans "List farmers" %}
           </p>
         </a>
       </li>
@@ -96,12 +95,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List of farmers</h1>
+            <h1>{% trans "List of farmers" %}</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">List farmers</li>
+              <li class="breadcrumb-item"><a href="#">{% trans "Home" %}</a></li>
+              <li class="breadcrumb-item active">{% trans "List farmers" %}</li>
             </ol>
           </div>
         </div>
@@ -115,24 +114,24 @@
           <div class="col-12">            
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">View and search farmers</h3>
+                <h3 class="card-title">{% trans "View and search farmers" %}</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>ID Number</th>
-                    <th>Name</th>
-                    <th>Language</th>
-                    <th>City</th>
-                    <th>State</th>
+                    <th>{% trans "ID Number" %}</th>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Language" %}</th>
+                    <th>{% trans "City" %}</th>
+                    <th>{% trans "State" %}</th>
                   </tr>
                   </thead>
                   <tbody>
                                
                   <tr>
-                    <td>Misc1</td>
+                    <td>{% trans "Misc1" %}</td>
                     <td>Dillo 0.8</td>
                     <td>Embedded devices</td>
                     <td>Tokyo</td>
@@ -202,26 +201,26 @@
 
   {% block custom_js %}
 <!-- jQuery -->
-<script src="static/admin/plugins/jquery/jquery.min.js"></script>
+<script src="{% static "admin/plugins/jquery/jquery.min.js" %}"></script>
 <!-- Bootstrap 4 -->
-<script src="static/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{% static "admin/plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
 <!-- DataTables  & Plugins -->
-<script src="static/admin/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="static/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="static/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="static/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="static/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="static/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="static/admin/plugins/jszip/jszip.min.js"></script>
-<script src="static/admin/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="static/admin/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="static/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="static/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="static/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="{% static "admin/plugins/datatables/jquery.dataTables.min.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-responsive/js/dataTables.responsive.min.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-buttons/js/dataTables.buttons.min.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js" %}"></script>
+<script src="{% static "admin/plugins/jszip/jszip.min.js" %}"></script>
+<script src="{% static "admin/plugins/pdfmake/pdfmake.min.js" %}"></script>
+<script src="{% static "admin/plugins/pdfmake/vfs_fonts.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-buttons/js/buttons.html5.min.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-buttons/js/buttons.print.min.js" %}"></script>
+<script src="{% static "admin/plugins/datatables-buttons/js/buttons.colVis.min.js" %}"></script>
 <!-- AdminLTE App -->
-<script src="static/admin/dist/js/adminlte.min.js"></script>
+<script src="{% static "admin/dist/js/adminlte.min.js" %}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="static/admin/dist/js/demo.js"></script>
+<script src="{% static "admin/dist/js/demo.js" %}"></script>
 <!-- Page specific script -->
 <script>
   $(function () {

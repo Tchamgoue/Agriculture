@@ -11659,7 +11659,7 @@ $.ui.plugin.add( "resizable", "containment", {
 			ce = that.containerElement,
 			continueResize = true;
 
-		if ( ce[ 0 ] !== document && ( /static/ ).test( ce.css( "position" ) ) ) {
+		if ( ce[ 0 ] !== document && ( /{% static " ).test( ce.css( "position" ) ) ) {
 			cop = co;
 		}
 
@@ -11753,7 +11753,7 @@ $.ui.plugin.add( "resizable", "containment", {
 			} );
 		}
 
-		if ( that._helper && !o.animate && ( /static/ ).test( ce.css( "position" ) ) ) {
+		if ( that._helper && !o.animate && ( /{% static " ).test( ce.css( "position" ) ) ) {
 			$( this ).css( {
 				left: ho.left - cop.left - co.left,
 				width: w,

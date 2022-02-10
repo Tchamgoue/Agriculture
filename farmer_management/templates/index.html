@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="container">
+    <div class="services-bar">
+        <h1 class="my-4">{% trans "Main features" %} & {% trans "Services" %}</h1>
+        <!-- Services Section -->
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <h4 class="card-header">{% trans "Agro-ecologic matching" %}</h4>
+                    <div class="card-img">
+                        <img class="img-fluid service-img" src="{% static "images/service1.jpg" %}" alt=""/>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{% trans "We identify around the continent and the whole Word places with the same climatic and soils’ structure characteristics where IPM technologies succeeded to suggest better solutions to farmer on what the can sow." %}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">{% trans "Learn More" %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <h4 class="card-header">{% trans "Pest fighting technologies" %}</h4>
+                    <div class="card-img">
+                        <img class="img-fluid service-img" src="{% static "images/service2.jpg" %}" alt=""/>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{% trans "Insects such as locusts can become a real headache in agriculture, our solutions are adapted according to the environment, the crops and the targeted pests." %}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">{% trans "Learn More" %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <h4 class="card-header">{% trans "Yields Improvement" %}</h4>
+                    <div class="card-img">
+                        <img class="img-fluid service-img" src="{% static "images/service3.jpg" %}" alt=""/>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{% trans "Our digital solutions have been developed to improve your yields at the end of the season." %}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">{% trans "Learn More" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- About Section -->
+    <div class="about-main">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>{% trans "Welcome to" %} <strong class="important-text">JLK</strong></h2>
+                <p>{% trans "Following the funding of several research projects of multiple post-doctoral students in Africa by the Volkswagen Foundation, the IPM and agroecology project has also been carried out so far. As agriculture is the flagship activity of the continent, this ambitious project, targeting mainly sub-Saharan Africa, has as main objectives:" %}
+                    .</p>
+                <!--                <h5>Our smart approach</h5>-->
+                <ul>
+                    <li>{% trans "To build an all-inclusive portal for supporting the IPM technologies deployment in Africa." %}</li>
+                    <li>{% trans "To develop a portal for IPM technology transfer and outreach." %}</li>
+                    <li>{% trans "To Establish an electronic technology gateway, which is a one-stop-shop to store, browse, search, query, and visualize IPM technologies" %}.
+                    </li>
+                    <li>{% trans "To link farmers to inputs and outputs – products and services" %}.</li>
+                    <li>{% trans "To provide a stand-alone gateway with all African countries boundaries and queries for identifying similar agroecology within the continent" %}.
+                    </li>
+                </ul>
+                <!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id-->
+                <!--                    reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia-->
+                <!--                    dolorum ducimus unde.</p>-->
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid rounded" src="{% static "images/hom4.jpg" %}" alt=""/>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    
+    <hr>
+    <!-- Get In Touch Now Section -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <p>{% trans "Get a free account and modernise your agriculture, with the most adapted technologies and latest information concerning any type of crop or pest" %}.</p>
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-lg btn-secondary btn-block" href="farmer_registration">{% trans "Register Now" %}</a>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+{% endblock content %}

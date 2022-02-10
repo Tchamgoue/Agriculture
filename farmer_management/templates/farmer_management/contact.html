@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+{% load i18n %}
 
 {% block custom_style %}
-<link rel="stylesheet" type="text/css" href="static/css/aos.css"/>
-<!--<link href="static/scss/style.css" rel="stylesheet">-->
+<link rel="stylesheet" type="text/css" href="{% static "css/aos.css" %}" />
+<!--<link href="{% static "scss/style.css" %}" rel="stylesheet">-->
 <style type="text/css">
     .categ-banner{
         position:relative;
@@ -29,13 +31,13 @@
 {% block banner %}
 <div class="categ-banner"
      style="
-                    background:url('static/images/slider-02.jpg');
+                    background:url('{% static "images/slider-02.jpg" %}');
                     background-size:cover;
                     background-repeat:no-repeat;height:35vh;">
     <div class="product-overlay"></div>
     <div class="title d-flex flex-column justify-content-center align-items-center">
         <h1 class="py-3 px-3 text-white" data-aos="fade-up" style="text-align:center;" data-aos-delay="100">
-            Contact us
+            {% trans "Contact us" %}
         </h1>
         <!-- <nav aria-label="breadcrumb"> 
                 <ol class="breadcrumb"> 
@@ -77,11 +79,11 @@
     <!-- <div class="row"> -->
     <div class="col-lg-8 mb-4 contact-left">
         <!--TODO associate this form to a django model-->
-        <h3>Send us a Message</h3>
+        <h3>{% trans "Send us a Message" %}</h3>
         <form name="sentMessage" id="contactForm" novalidate>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label>Full Name:</label>
+                    <label>{% trans "Full Name" %}:</label>
                     <input type="text" class="form-control" id="name" required
                            data-validation-required-message="Please enter your name.">
                     <p class="help-block"></p>
@@ -89,37 +91,37 @@
             </div>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label>Phone Number:</label>
+                    <label>{% trans "Phone Number" %}:</label>
                     <input type="tel" class="form-control" id="phone" required
-                           data-validation-required-message="Please enter your phone number.">
+                           data-validation-required-message="{% trans 'Please enter your phone number' %}.">
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label>Email Address:</label>
+                    <label>{% trans "Email Address" %}:</label>
                     <input type="email" class="form-control" id="email" required
-                           data-validation-required-message="Please enter your email address.">
+                           data-validation-required-message="{% trans 'Please enter your email address' %}.">
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label>Message:</label>
+                    <label>{% trans "Message" %}:</label>
                     <textarea rows="5" cols="100" class="form-control" id="message" required
-                              data-validation-required-message="Please enter your message" maxlength="999"
+                              data-validation-required-message="{% trans 'Please enter your message' %}" maxlength="999"
                               style="resize:none"></textarea>
                 </div>
             </div>
             <div id="success"></div>
             <!-- For success/fail messages -->
-            <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">{% trans 'Send Message' %}</button>
         </form>
     </div>
     <!-- Contact Details Column -->
     <div class="col-lg-4 mb-4 contact-right">
-        <h3>Contact Details</h3>
+        <h3>{% trans 'Contact Details' %}</h3>
         <p>
             47 Ernest Street
-            <br>United States
+            <br>{% trans "United States" %}
             <br>
         </p>
         <p>
@@ -149,12 +151,9 @@
 {% endblock content %}
 
 {% block custom_js %}
-<script type="text/javascript" src="static/js/aos.js"></script>
+<script type="text/javascript" src="{% static "js/aos.js" %}"></script>
 <script type="text/javascript">
                 AOS.init();
-
-
-
 </script>
 
 {% endblock custom_js %}

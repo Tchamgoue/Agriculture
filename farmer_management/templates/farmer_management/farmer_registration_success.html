@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 
 
 {% block banner %}
@@ -10,17 +10,17 @@
 <div class="about-main">
     <div class="row">
         <div class="col-lg-6">
-            <h2>We have received your Farmer request.</h2>
+            <h2>{% trans "We have received your Farmer request" %}.</h2>
             <div class="row">
                 <div class="col-md-8">
                     <div class="alert alert-success">
                         <!--<button type="button" class="close" data-dismiss="alert">&amp;times;</button>-->
-                        <h5>Your Farmer request is <strong>
+                        <h5>{% trans "Your Farmer request is" %} <strong>
                             {% if farmer_number %}
                             {{ farmer_number }}
 
-                        </strong> please note it for further communication and you will also receive email from our
-                            team shortly, Please reply to that email for feature conversation.<br/></h5>
+                        </strong> {% trans "please note it for further communication and you will also receive email from our
+                            team shortly, Please reply to that email for feature conversation." %}<br/></h5>
                         {% elif error %}
                         </strong>{{ error }} <br/></h5>
                         {% endif %}
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <img class="img-fluid rounded" src="static/images/hom4.jpg" alt=""/>
+            <img class="img-fluid rounded" src="{% static "images/hom4.jpg" alt=""/>
         </div>
     </div>
     <!-- /.row -->

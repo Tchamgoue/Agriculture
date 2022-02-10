@@ -10,4 +10,9 @@ db.sqlite3
 /rmf/migrations/
 /venv
 env/*
+.env/*
+staticfiles/*
 rapidtest/*
+host-apache.conf
+make-messge.txt
+emv/

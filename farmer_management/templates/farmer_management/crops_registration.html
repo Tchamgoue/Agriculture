@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% load i18n %}
 {% block custom_style %}
 
 <style>
@@ -32,13 +33,13 @@
 
 {% block banner %}
 <div class="categ-banner"
-     style="background:url('static/images/slider-01.jpg');
+     style="background:url('{% static "images/slider-01.jpg" %}');
             background-size:cover;
             background-repeat:no-repeat;height:15vh;">
     <div class="product-overlay"></div>
     <div class="title d-flex flex-column justify-content-center align-items-center">
         <h1 class="py-3 px-3 text-white" data-aos="fade-up" style="text-align:center;" data-aos-delay="100">
-            Add Crop
+            {% trans "Add Crop" %}
         </h1>
     </div>
 </div>
@@ -53,7 +54,7 @@
                     reply_all
                 </span>
             </a>
-            <h3>Register your crop</h3>
+            <h3>{% trans "Register your crop" %}</h3>
         </div>
         <hr/>
         <form method="post" action="crops_registration" enctype="multipart/form-data">
@@ -61,51 +62,51 @@
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
-                        <label for="image">Image</label>
+                        <label for="image">{% trans "Image" %}</label>
                         <input class="form-control" type="file" name="image" id="image" required>
                     </div>
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">{% trans "Name" %}</label>
                         <input class="form-control" type="text" name="name" id="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="start_date">Crop period start</label>
+                        <label for="start_date">{% trans "Crop period start" %}</label>
                         <input class="form-control" type="date" name="start_date" id="start_date" required>
                     </div>
                     <div class="form-group">
-                        <label for="end_date">Crop period end</label>
+                        <label for="end_date">{% trans "Crop period end" %}</label>
                         <input class="form-control" type="date" name="end_date" id="end_date" required>
                     </div>
                     <div class="form-group form-inline">
-                        <label for="techs">Select technonologies</label>
+                        <label for="techs">{% trans "Select technologies" %}</label>
                         <select class="form-control" name="technologies_ids" id="techs" multiple>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>
+                            <option value="volvo">{% trans "Volvo" %}</option>
+                            <option value="saab">{% trans "Saab" %}</option>
+                            <option value="opel">{% trans "Opel" %}</option>
+                            <option value="audi">{% trans "Audi" %}</option>
                         </select>
                         <a href="#">
-                            <span class="material-icons 2x ml-4" title="add new technology">add</span>
+                            <span class="material-icons 2x ml-4" title="{% trans 'add new technology' %}">{% trans "add" %}</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="form-group">
-                        <label for="warehouse_id">Select Warehouse</label>
+                        <label for="warehouse_id">{% trans "Select Warehouse" %}</label>
                         <div class="d-flex flex-row justify-content-between align-items-center">
                             <select class="form-control" name="warehouse_id" id="warehouse_id">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
+                                <option value="volvo">{% trans "Volvo" %}</option>
+                                <option value="saab">{% trans "Saab" %}</option>
+                                <option value="opel">{% trans "Opel" %}</option>
+                                <option value="audi">{% trans "Audi" %}</option>
                             </select>
                             <a href="#">
-                                <span class="material-icons 2x ml-4" title="add new technology">add</span>
+                                <span class="material-icons 2x ml-4" title="add new technology">{% trans "add" %}</span>
                             </a>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="stock_id">Select Stock location</label>
+                        <label for="stock_id">{% trans "Select Stock location" %}</label>
                         <div class="d-flex flex-row justify-content-between align-items-center">
                             <select class="form-control" name="stock_id" id="stock_id">
                                 <option value="volvo">Volvo</option>
@@ -114,12 +115,12 @@
                                 <option value="audi">Audi</option>
                             </select>
                             <a href="#">
-                                <span class="material-icons 2x ml-4" title="add new technology">add</span>
+                                <span class="material-icons 2x ml-4" title="{% trans 'add new technology' %}">{% trans "add" %}</span>
                             </a>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description">{% trans "Description" %}</label>
                         <textarea id="description" class="form-control" rows="6"
                                   placeholder="type your description here ...">
                         </textarea>
@@ -129,165 +130,22 @@
             <hr>
             <div class="px-3 row d-flex flex-row justify-content-between align-items-center">
                 <button class="btn btn-danger" type="reset">
-                    Cancel
+                    {% trans "Cancel" %}
                 </button>
                 <button class="btn btn-success" type="submit">
-                    Submit
+                    {% trans "Submit" %}
                 </button>
             </div>
         </form>
     </div>
 </div>
-<!--<div class="container">-->
-<!--    &lt;!&ndash; About Section &ndash;&gt;-->
-<!--    <div class="about-main">-->
-<!--        <h3 class="text-center mb8" style="color:#c38647;margin-bottom:2em;">Register Your Crops</h3>-->
-<!--        <form action="crops_registration" method="post" class="form-horizontal mt32"-->
-<!--              enctype="multipart/form-data">-->
-<!--            {% csrf_token %}-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-6">-->
-<!--                    <div class="col-lg-12 col-lg-12 mb-4">-->
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="name">Name</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="name" type="text" class="form-control" name="name" required="True"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="bionomical_name">Bionomical-->
-<!--                                    Name</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input type="text" id="bionomical_name" class="form-control" name="bionomical_name"-->
-<!--                                           required="True"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="spread">Spread(diameter)</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="spread" type="text" class="form-control" name="spread"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="row_spacing">Row Spacing</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="row_spacing" type="text" class="form-control" name="row_spacing"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="height">Height</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="height" type="email" class="form-control" name="height"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                    &lt;!&ndash;<div class="col-lg-12 col-lg-12 mb-4">-->
-<!--                        <div class="col-md-12 form-group" name="div_submit_main">-->
-<!--                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7" name="div_submit">-->
-<!--                                <button class="btn btn-lg btn-secondary btn-block">Submit</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>&ndash;&gt;-->
-<!--                </div>-->
-
-<!--                <div class="col-lg-6">-->
-<!--                    &lt;!&ndash;<h3 class="text-center mb8" style="color:#c38647;margin-bottom:2em;">Farmer Registration</h3>&ndash;&gt;-->
-<!--                    <div class="col-lg-12 col-lg-12 mb-4">-->
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="taxon">Taxon</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="taxon" type="text" class="form-control" name="taxon"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="sun_requirement_id">Sun-->
-<!--                                    Requirements</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="sun_requirement_id" type="text" class="form-control"-->
-<!--                                           name="sun_requirement_id"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="growing_degree_days">Growing-->
-<!--                                    Degree Days</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="growing_degree_days" type="text" class="form-control"-->
-<!--                                           name="growing_degree_days"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-12">-->
-<!--                            <div t-attf-class="form-group" name="div_name">-->
-<!--                                <label class="col-md-12 col-sm-12 control-label" for="sowing_method">Sowing-->
-<!--                                    Method</label>-->
-<!--                                <div class="col-md-12 col-sm-12">-->
-<!--                                    <input id="sowing_method" type="text" class="form-control" name="sowing_method"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-lg-12 col-lg-12 mb-4">-->
-<!--                <div class="col-md-12 form-group" name="div_submit_main">-->
-<!--                    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7 d-flex flex-row justify-content-center-->
-<!--                        align-items-center" name="div_submit">-->
-<!--                        <button class="btn btn-secondary">Submit</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </form>-->
-
-<!--        &lt;!&ndash;<div class="col-lg-6">-->
-<!--            <img class="img img-responsive img-fluid mb32 rounded"-->
-<!--                 src="static/img/farmer2.jpg"-->
-<!--                 style="width:100%; height:100%;">-->
-<!--            <div class="d-none d-sm-block  d-none d-xs-block header-text httal htvam">-->
-<!--                <h2 id="header_293" class="form-header"-->
-<!--                    data-component="header">Great companies are built with great people-->
-<!--                </h2>-->
-<!--                <input type="hidden" class="post_active" t-att-value="post_job_active"/>-->
-<!--            </div>-->
-<!--        </div>&ndash;&gt;-->
-
-<!--        &lt;!&ndash; /.row &ndash;&gt;-->
-<!--    </div>-->
-<!--</div>-->
-
 
 {% endblock content %}
 
 {% block custom_js %}
-<script type="text/javascript" src="static/js/aos.js"></script>
+<script type="text/javascript" src="{% static "js/aos.js" %}"></script>
 <script type="text/javascript">
             AOS.init();
-
-
-
-
-
-
 </script>
 
 {% endblock custom_js %}

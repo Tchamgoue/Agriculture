@@ -1,5 +1,6 @@
 {% extends "admin_farmer/basic.html" %}
-  <title>AdminLTE 3 | User Profile</title>
+{% load i18n %}
+  <title>AdminLTE 3 | {% trans "User Profile" %}</title>
   {% block custom_style %}
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,8 +20,8 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
-            Dashboard
-            <span class="right badge badge-warning">Soon</span>
+            {% trans "Dashboard" %}
+            <span class="right badge badge-warning">{% trans "Soon" %}</span>
           </p>
         </a>
       </li>
@@ -29,7 +30,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-edit"></i>
           <p>
-            Crop requests
+            {% trans "Crop requests" %}
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -37,13 +38,13 @@
           <li class="nav-item">
             <a href="add_crop_request" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>New crop request</p>
+              <p>{% trans "New crop request" %}</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="list_crop_requests" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>All crop requests</p>
+              <p>{% trans "All crop requests" %}</p>
             </a>
           </li>
         </ul>
@@ -54,7 +55,7 @@
         <a href="profile" class="nav-link active">
           <i class="nav-icon fas fa-book"></i>
           <p>
-            Farmer informations
+            {% trans "Farmer informations" %}
             <!-- <i class="fas fa-angle-left right"></i> -->
           </p>
         </a>
@@ -63,8 +64,8 @@
         <a href="farmer_location" class="nav-link">
           <i class="nav-icon fas fa-map-marker-alt"></i>
           <p>
-            Farmer location
-            <span class="right badge badge-danger">New</span>
+            {% trans "Farmer location" %}
+            <span class="right badge badge-danger">{% trans "New" %}</span>
           </p>
         </a>
       </li>
@@ -73,7 +74,7 @@
         <a href="list_farmers" class="nav-link">
           <i class="nav-icon fas fa-users"></i>
           <p>
-            List farmers
+            {% trans "List farmers" %}
           </p>
         </a>
       </li>
@@ -90,12 +91,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Profile</h1>
+            <h1>{% trans "Profile" %}</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Farmer informations</li>
+              <li class="breadcrumb-item"><a href="#">{% trans "Home" %}</a></li>
+              <li class="breadcrumb-item active">{% trans "Farmer informations" %}</li>
             </ol>
           </div>
         </div>
@@ -119,7 +120,7 @@
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Total crop requests</b> <a class="float-right">32</a>
+                    <b>{% trans "Total crop requests" %}</b> <a class="float-right">32</a>
                   </li>
                 </ul>
                 <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
@@ -131,11 +132,11 @@
             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header" style="background-color: #f3c026; color: #000;">
-                <h3 class="card-title">About Me</h3>
+                <h3 class="card-title">{% trans "About Me" %}</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Name in local language</strong>
+                <strong><i class="fas fa-book mr-1"></i> {% trans "Name in local language" %}</strong>
 
                 <p class="text-muted">
                   adrie
@@ -143,7 +144,7 @@
 
                 <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> {% trans "Location" %}</strong>
 
                 <p class="text-muted">Malibu, California</p>
                 <hr>
@@ -155,13 +156,13 @@
 
                 <hr>
 
-                <strong><i class="fas fa-phone mr-1"></i> Phone</strong>
+                <strong><i class="fas fa-phone mr-1"></i> {% trans "Phone" %}</strong>
                 <p class="text-muted">695900123</p>
                 
 
                 <hr>
 
-                <strong><i class="far fa-envelope mr-1"></i> Email</strong>
+                <strong><i class="far fa-envelope mr-1"></i> {% trans "Email" %}</strong>
 
                 <p class="text-muted">adrienne.tchamgoue@gmail.com</p>
               </div>
@@ -175,7 +176,7 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
 
-                  <li class="nav-item active"> <h4>Update informations </h4></li>
+                  <li class="nav-item active"> <h4>{% trans "Update informations" %} </h4></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -183,31 +184,31 @@
                   <div class="active tab-pane" id="settings">
                     <form class="form-horizontal">
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Your name</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">{% trans "Your name" %}</label>
                         <div class="col-sm-10">
                           <input type="text" name="name" class="form-control" required id="inputName" placeholder="Name">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name in local language</label>
+                        <label for="inputName2" class="col-sm-2 col-form-label">{% trans "Name in local language" %}</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" required name="name_local_lang" id="inputName2" placeholder="name in local language">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Mobile</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">{% trans "Mobile" %}</label>
                         <div class="col-sm-10">
                           <input type="email" class="form-control" name="mobile" id="inputEmail" placeholder="Mobile">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Phone</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">{% trans "Phone" %}</label>
                         <div class="col-sm-10">
                           <input type="email" class="form-control" name="phone" id="inputEmail" placeholder="Phone">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">{% trans "Email" %}</label>
                         <div class="col-sm-10">
                           <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email">
                         </div>
@@ -223,7 +224,7 @@
                       </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="submit" class="btn btn-success">{% trans "Submit" %}</button>
                         </div>
                       </div>
                     </form>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block banner %}
 {% endblock %}
 
@@ -13,7 +13,7 @@
             </span>
         </a>
         <h3>
-            Farms
+            {% trans "Farms" %}
         </h3>
     </div>
     <div>
@@ -23,8 +23,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">View and search farmers</h3>
-                                <a href="farm_location_registration" class="btn btn-outline-success">Add Farm</a>
+                                <h3 class="card-title">{% trans "View and search farmers" %}</h3>
+                                <a href="farm_location_registration" class="btn btn-outline-success">{% trans "Add Farm" %}</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -32,9 +32,9 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Crops</th>
-                                        <th scope="col">View on Map</th>
+                                        <th scope="col">{% trans "Name" %}</th>
+                                        <th scope="col">{% trans "Crops" %}</th>
+                                        <th scope="col">{% trans "View on Map" %}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -47,7 +47,7 @@
                                                 <a href="https://maps.google.com/?q={{farm.partner_latitude}},
                                                 {{farm.partner_longitude}}" target="_blank">
                                                     <span class="material-icons">
-                                                        visibility
+                                                        {% trans "visibility" %}
                                                     </span>
                                                 </a>
                                             </td>
@@ -57,9 +57,9 @@
                                     <tfoot>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Crops</th>
-                                            <th scope="col">View on Map</th>
+                                            <th scope="col">{% trans "Name" %}</th>
+                                            <th scope="col">{% trans "Crops" %}</th>
+                                            <th scope="col">{% trans "View on Map" %}</th>
                                         </tr>
                                     </tfoot>
                                 </table>

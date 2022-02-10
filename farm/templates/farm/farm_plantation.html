@@ -1,9 +1,10 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% load i18n %}
 {% block custom_style %}
-<link rel="stylesheet" type="text/css" href="static/css/aos.css"/>
+<link rel="stylesheet" type="text/css" href="{% static "css/aos.css" %}"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="static/scss/style.css" rel="stylesheet">
+<link href="{% static "scss/style.css" %}" rel="stylesheet">
 <style>
     .categ-banner{
         position:relative;
@@ -32,7 +33,7 @@
 {% block banner %}
 <div class="categ-banner"
      style="
-                    background:url('static/images/slider-01.jpg');
+                    background:url('{% static "images/slider-01.jpg" %}');
                     background-size:cover;
                     background-repeat:no-repeat;height:60vh;">
     <div class="product-overlay"></div>
@@ -62,11 +63,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     {% csrf_token %}
-                    <h3 class="text-center mb8" style="color:#c38647;margin-bottom:2em;">Register Farm Plantation</h3>
+                    <h3 class="text-center mb8" style="color:#c38647;margin-bottom:2em;">{% trans "Register Farm Plantation" %}</h3>
                     <div class="col-lg-12 col-lg-12 mb-4">
                         <div class="col-md-12">
                             <div t-attf-class="form-group" name="div_name">
-                                <label class="col-md-12 col-sm-12 control-label" for="name">Name</label>
+                                <label class="col-md-12 col-sm-12 control-label" for="name">{% trans "Name" %}</label>
                                 <div class="col-md-12 col-sm-12">
                                     <input type="text" class="form-control" name="name" required="True"/>
                                 </div>
@@ -74,10 +75,10 @@
                         </div>
                         <div class="col-md-12">
                             <div t-attf-class="form-group" name="div_name">
-                                <label class="col-md-12 col-sm-12 control-label" for="bionomical_name">Address Type</label>
+                                <label class="col-md-12 col-sm-12 control-label" for="bionomical_name">{% trans "Address Type" %}</label>
                                 <div class="col-md-12 col-sm-12">
                                      <select class="form-control" name="warehouse_id">
-                                        <option>Choose yours crops</option>
+                                        <option>{% trans "Choose yours crops" %}</option>
                                     </select>
                                 </div>
                             </div>
@@ -86,7 +87,7 @@
 
                         <div class="col-md-12">
                             <div t-attf-class="form-group" name="div_name">
-                                <label class="col-md-12 col-sm-12 control-label" for="spread">Company Address</label>
+                                <label class="col-md-12 col-sm-12 control-label" for="spread">{% trans "Company Address" %}</label>
                                 <div class="col-md-12 col-sm-12">
                                     <input type="text" class="form-control" name="crop_period_end"/>
                                 </div>
@@ -103,10 +104,10 @@
                     <div class="col-lg-12 col-lg-12 mb-4">
                         <div class="col-md-12">
                             <div t-attf-class="form-group" name="div_name">
-                                <label class="col-md-12 col-sm-12 control-label" for="taxon">Crops for plantation</label>
+                                <label class="col-md-12 col-sm-12 control-label" for="taxon">{% trans "Crops for plantation" %}</label>
                                 <div class="col-md-12 col-sm-12">
                                     <select class="form-control" name="warehouse_id" multiple>
-                                        <option>Choose yours crops</option>
+                                        <option>{% trans "Choose yours crops" %}</option>
                                         {% if crops %}
                                             {% for crop in crops %}
                                                 {% for key in crop %}
@@ -123,7 +124,7 @@
                     <div class="col-lg-12 col-lg-12 mb-4">
                         <div class="col-md-12 form-group" name="div_submit_main">
                             <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7" name="div_submit">
-                                <button class="btn btn-lg btn-secondary btn-block">Submit</button>
+                                <button class="btn btn-lg btn-secondary btn-block">{% trans "Submit" %}</button>
                             </div>
                         </div>
                     </div>
@@ -138,12 +139,9 @@
 {% endblock content %}
 
 {% block custom_js %}
-<script type="text/javascript" src="static/js/aos.js"></script>
+<script type="text/javascript" src="{% static "js/aos.js"></script>
 <script type="text/javascript">
             AOS.init();
-
-
-
 </script>
 
 {% endblock custom_js %}
